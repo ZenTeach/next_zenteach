@@ -5,7 +5,7 @@ const PrivacyPolicy = () => {
 <SiteLayout>
 			<div className="h-full bg-grey mt-8 sm:mt-0 sm:py-12 max-w-4xl mx-auto px-8">
 				<h1 className="text-5xl text-center font-bold my-2">Privacy Policy</h1>
-				<small className="text-xs italic my-2">Last updated: July 9, 2020</small>
+				<small className="text-xs font-bold italic my-2">Last updated: July 9, 2020</small>
 				<p>
 					ZenTeach (“us”, “we”, or “our”) operates the ZenTeach website (the “Service”).
 
