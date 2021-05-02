@@ -1,13 +1,19 @@
 import Link from 'next/link'
 
 const Footer = ({}) => (
-	<div className="h-full bg-grey border-black border-3 p-8">
-		<div className="sm:flex mb-4 p-4">
+	<div className="h-full bg-red border-black border-3 p-8">
+		<div className="sm:flex mx-auto mb-4 p-4">
 			<div className="sm:w-1/4 w-1/4 h-auto">
-				<div className="font-bold mb-2">Company</div>
+				<div className="font-bold text-xl mb-2">Company</div>
 				<ul className="list-reset leading-normal">
 					<li className="hover:text-orange text-grey-darker">About Us</li>
-					<li className="hover:text-orange text-grey-darker">Vision</li>
+					<li className="hover:text-orange text-grey-darker">
+						<Link href='/vision'>
+							<a className="inline-block bg-white border-none text-red font-medium rounded-lg leading-tight">
+								Vision
+							</a>
+						</Link>
+					</li>
 					<li className="hover:text-orange text-grey-darker">
 						<Link href='/technology'>
 							<a className="inline-block bg-white border-none text-red font-medium rounded-lg leading-tight">
@@ -15,22 +21,20 @@ const Footer = ({}) => (
 							</a>
 						</Link>
 					</li>
-					<li className="hover:text-orange text-grey-darker">Terms of Service</li>
-					<li className="hover:text-orange text-grey-darker">Privacy</li>
-				</ul>
-			</div>
-			<div className="sm:w-1/4 w-1/4 h-auto sm:mt-0 mt-8">
-				<div className="text-blue mb-2">Blue</div>
-				<ul className="list-reset leading-normal">
-					<li className="hover:text-blue text-grey-darker">One</li>
-					<li className="hover:text-blue text-grey-darker">Two</li>
-					<li className="hover:text-blue text-grey-darker">Three</li>
-				</ul>
-				<div className="text-blue-light mb-2 mt-4">Blue-light</div>
-				<ul className="list-reset leading-normal">
-					<li className="hover:text-blue-light text-grey-darker">One</li>
-					<li className="hover:text-blue-light text-grey-darker">Two</li>
-					<li className="hover:text-blue-light text-grey-darker">Three</li>
+					<li className="hover:text-orange text-grey-darker">
+						<Link href='/terms_and_conditions'>
+							<a className="inline-block bg-white border-none text-red font-medium rounded-lg leading-tight">
+								Terms and Conditions
+							</a>
+						</Link>
+					</li>
+					<li className="hover:text-orange text-grey-darker">
+						<Link href="/privacy_policy">
+						<a className="inline-block bg-white border-none text-red font-medium rounded-lg leading-tight">
+							Privacy Policy
+						</a>
+						</Link>
+					</li>
 				</ul>
 			</div>
 			<div className="sm:w-1/2 w-1/2 sm:mt-0 mt-8 h-auto">

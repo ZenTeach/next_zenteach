@@ -5,12 +5,11 @@ const NavBar = ({ children }) => (
 		<nav className="py-8 px-8 w-100 flex-shrink-0 flex justify-center">
 		<div>
 			<div className="float-left">
-				<img className="h-8 w-8 float-left" src="/logo.png" alt="" />
+				<Link href="/">
+					<img className="h-8 w-8 float-left" src="/logo.png" alt="" />
+				</Link>
 			</div>
 			<div className="float-right">
-				<Link href="/">
-					<a className="ml-8 font-medium text-gray-900">Home</a>
-				</Link>
 				<Link href="/features">
 					<a className="ml-8 font-medium text-gray-900">Features</a>
 				</Link>
@@ -23,7 +22,6 @@ const NavBar = ({ children }) => (
 			</div>
 		</div>
 		</nav>
-    <div className="mt-6 sm:mt-0 sm:py-12">{children}</div>
   </div>
 );
 
