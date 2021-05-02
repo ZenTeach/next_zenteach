@@ -3,12 +3,12 @@ import SiteLayout from '../components/SiteLayout'
 const Technology = () => {
 	return (
 		<SiteLayout>
-			<div className="h-screen flex space-between max-w-4xl mx-auto">
+			<div className="h-screen flex space-between max-w-4xl mx-auto mt-8 pt-8">
 				<img
 					alt="map of the brain"
 					className="object-cover h-auto w-auto object-center rounded-lg "
 					src="map_of_brain.gif"/>
-				<div class="m-1">
+				<div className="m-1">
 					<h1 className="text-center p-2">
 						<span className="block text-5xl font-bold leading-none">
 							A Map of the Brain
@@ -37,7 +37,7 @@ const Technology = () => {
 					alt="photosynthesis"
 					className="object-cover h-auto w-auto object-center rounded-lg "
 					src="Photosynthesis.gif"/>
-				<div class="m-1 w-2/5 py-6">
+				<div className="m-1 w-2/5 py-6">
 					<h1 className="text-center p-2">
 						<span className="block text-5xl font-bold leading-none">
 							Learning From the Best
