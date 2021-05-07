@@ -2,10 +2,10 @@ import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Footer = ({}) => (
-	<div className="h-full bg-red flex justify-around p-8">
+	<div className="h-full bg-gray-100 bg-opacity-25 border-t border-gray-400 flex justify-around p-8">
 		<div className="sm:flex mb-4 p-4">
 			<div className="sm:w-1/4 md:w-1/3 w-1/3 h-auto flex-shrink">
-				<div className="font-bold text-xl space-y-2 w-full mb-2">
+				<div className="font-normal text-xl space-y-2 w-full mb-2">
 					<Link href="/">
 						<img className="h-8 w-8 float-left" src="/logo.png" alt="" />
 					</Link>
@@ -36,6 +36,16 @@ const Footer = ({}) => (
 							</a>
 						</span>
 					</div>
+				</div>
+				<div className="my-6">
+					<p>Or drop us a line at</p>
+					<a
+						className="text-md text-black underline"
+						href="mailto:info@zenteach.co.uk"
+						target="_blank"
+					>
+						info@zenteach.co.uk
+					</a>
 				</div>
 			</div>
 			<div className="sm:w-1/4 md:w-1/3 w-1/3 h-auto">
