@@ -1,5 +1,4 @@
 import SiteLayout from '../components/SiteLayout'
-import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const AboutUs = () => {
@@ -49,22 +48,19 @@ const AboutUs = () => {
 					</div>
 					<div className="px-6 pt-4 pb-2 w-full flex">
 						<div className="p-2 content-around space-around">
-							{/* <Link href="https://twitter.com/babyodainaonsie"></Link> */}
-								<a href="https://twitter.com/babyodainaonsie" target="_blank">
-									<FontAwesomeIcon icon={["fab", "twitter"]} />
-								</a>
+							<a href="https://twitter.com/babyodainaonsie" target="_blank">
+								<FontAwesomeIcon icon={["fab", "twitter"]} />
+							</a>
 						</div>
 						<div className="p-2 content-around space-around">
-							{/* <Link href="https://www.linkedin.com/in/ngetahun/"></Link> */}
-								<a href="https://www.linkedin.com/in/ngetahun/" target="_blank">
-									<FontAwesomeIcon icon={["fab", "linkedin"]} />
-								</a>
+							<a href="https://www.linkedin.com/in/ngetahun/" target="_blank">
+								<FontAwesomeIcon icon={["fab", "linkedin"]} />
+							</a>
 						</div>
 						<div className="p-2 content-around space-around">
-							{/* <Link href="https://github.com/ngetahun"></Link> */}
-								<a href="https://github.com/ngetahun" target="_blank">
-									<FontAwesomeIcon icon={["fab", "github"]} />
-								</a>
+							<a href="https://github.com/ngetahun" target="_blank">
+								<FontAwesomeIcon icon={["fab", "github"]} />
+							</a>
 						</div>
 
 					</div>
