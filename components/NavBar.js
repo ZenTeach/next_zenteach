@@ -4,7 +4,7 @@ const NavBar = ({ children }) => (
 	<div>
 		<nav className="p-3 w-full bg-gray-100 border-b border-gray-300">
 		<div className="flex flex-row justify-between space-x-96 ">
-			<div className="float-left">
+			<div className="mx-3">
 				<div className="font-normal text-xl space-y-2 w-full mb-2">
 					<Link href="/">
 						<img className="h-8 w-8 float-left" src="/logo.png" alt="" />

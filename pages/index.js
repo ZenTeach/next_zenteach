@@ -1,16 +1,23 @@
 import SiteLayout from '../components/SiteLayout'
 import Feature from '../components/Feature'
 import Link from 'next/link'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Index = () => (
   <SiteLayout>
     <div className="h-screen mt-8 sm:mt-0 sm:py-12 max-w-xl mx-auto px-8">
       <h1 className="text-center">
         <span className="block text-5xl font-bold leading-none">
-					A Revolutionary Formative Assessment Tool for Teachers
+					A Revolutionary Formative Assessment Tool. For Teachers.
         </span>
       </h1>
       <div className="mt-12 text-center">
+		{/* <span className="inline-block">
+			<input type="email" className="p-2 border border-grey-light round text-grey-dark text-sm h-auto" />
+			<span>
+				<FontAwesomeIcon icon={['fab', 'arrow-circle-right']} />
+			</span>
+		</span> */}
         <Link href="http://eepurl.com/hmou3n">
           <a className="inline-block bg-white border-2 text-red font-medium rounded-lg px-6 py-4 leading-tight">
             Request Demo

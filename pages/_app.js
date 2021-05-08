@@ -2,11 +2,16 @@ import React from 'react'
 import App from 'next/app'
 import '../css/tailwind.css'
 import { config, library } from '@fortawesome/fontawesome-svg-core'
-import { fab,  faLinkedin, faTwitter, faGithub, faMedium } from '@fortawesome/free-brands-svg-icons'
+import { fab,
+				faLinkedin,
+				faTwitter,
+				faGithub,
+				faMedium } from '@fortawesome/free-brands-svg-icons'
+import { faArrowCircleRight } from '@fortawesome/free-solid-svg-icons'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 
 config.autoAddCss = false
-library.add(fab, faLinkedin, faTwitter, faGithub, faMedium)
+library.add(fab, faLinkedin, faTwitter, faGithub, faMedium, faArrowCircleRight)
 
 class MyApp extends App {
   render() {
