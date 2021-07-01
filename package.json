@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-		"build:production": "next build && next export",
+    "build:production": "next build && next export",
     "start": "next start"
   },
   "dependencies": {
@@ -15,7 +15,7 @@
     "@fortawesome/react-fontawesome": "^0.1.14",
     "@zeit/next-css": "^1.0.1",
     "autoprefixer": "^9.6.5",
-    "next": "9.1.1",
+    "next": "^11.0.1",
     "react": "16.10.2",
     "react-dom": "16.10.2",
     "tailwindcss": "^1.1.2"
