@@ -21,14 +21,19 @@ const AboutUs = () => {
 					</div>
 					<div className="px-6 pt-4 pb-2 w-full flex">
 						<div className="p-2 content-around space-around">
-							{/* <Link href=""></Link> */}
-								<a href="https://twitter.com/mikioherzberg" target="_blank">
+								<a href="https://twitter.com/mikioherzberg"
+									rel="noopener"
+									rel="noreferrer"
+									target="_blank">
 									<FontAwesomeIcon icon={["fab", "twitter"]} />
 								</a>
 						</div>
 						<div className="p-2 content-around space-around">
-							{/* <Link href=""></Link> */}
-								<a href="https://www.linkedin.com/in/philippherzberg/" target="_blank">
+								<a
+									href="https://www.linkedin.com/in/philippherzberg/"
+									rel="noopener"
+									rel="noreferrer"
+									target="_blank">
 									<FontAwesomeIcon icon={["fab", "linkedin"]} />
 								</a>
 						</div>
@@ -48,17 +53,26 @@ const AboutUs = () => {
 					</div>
 					<div className="px-6 pt-4 pb-2 w-full flex">
 						<div className="p-2 content-around space-around">
-							<a href="https://twitter.com/babyodainaonsie" target="_blank">
+							<a href="https://twitter.com/babyodainaonsie"
+								rel="noopener"
+								rel="noreferrer"
+								target="_blank">
 								<FontAwesomeIcon icon={["fab", "twitter"]} />
 							</a>
 						</div>
 						<div className="p-2 content-around space-around">
-							<a href="https://www.linkedin.com/in/ngetahun/" target="_blank">
+							<a href="https://www.linkedin.com/in/ngetahun/"
+								rel="noopener"
+								rel="noreferrer"
+								target="_blank">
 								<FontAwesomeIcon icon={["fab", "linkedin"]} />
 							</a>
 						</div>
 						<div className="p-2 content-around space-around">
-							<a href="https://github.com/ngetahun" target="_blank">
+							<a href="https://github.com/ngetahun"
+								rel="noopener"
+								rel="noreferrer"
+								target="_blank">
 								<FontAwesomeIcon icon={["fab", "github"]} />
 							</a>
 						</div>

@@ -1,5 +1,4 @@
 import SiteLayout from '../components/SiteLayout'
-import Link from "next/link";
 
 const Vision = () => {
 	return (
@@ -34,25 +33,25 @@ const Vision = () => {
 						</p>
 						<p className="my-2">
 							A
-							<Link href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/855933/teacher_workload_survey_2019_main_report_amended.pdf">
+							<a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/855933/teacher_workload_survey_2019_main_report_amended.pdf">
 								<span className="text-red-400"> 2019 study by the Department for Education </span>
-							</Link> found that 87% of
+							</a> found that 87% of
 							secondary school teachers view workload to be a fairly serious
 							or very serious problem (n=7000).
 						</p>
 						<p className="my-2">
 							A
-							<Link href="https://publications.parliament.uk/pa/cm201617/cmselect/cmeduc/199/199.pdf">
+							<a href="https://publications.parliament.uk/pa/cm201617/cmselect/cmeduc/199/199.pdf">
 								<span className="text-red-400"> 2017 study by the House of Commons </span>
-							</Link> found that 75% of teachers
+							</a> found that 75% of teachers
 							cited high workload as the main reason for considering leaving the profession.
 						</p>
 						<p className="my-2">
 							A good education is built on the shoulders of great teachers. In fact,
 							teachers are the single largest contributor to improved student outcomes (
-								<Link href="http://visible-learning.org/hattie-ranking-influences-effect-sizes-learning-achievement/">
+								<a href="http://visible-learning.org/hattie-ranking-influences-effect-sizes-learning-achievement/">
 									<span className="text-red-400">Hattie, 2017</span>
-								</Link>),
+								</a>),
 							which is why ZenTeach strives to help teachers stay in the profession.
 						</p>
 					</div>
