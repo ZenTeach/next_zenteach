@@ -2,9 +2,10 @@ const fetch = require('node-fetch');
 
 export default function handler(req, res) {
 	if (req.method === 'POST') {
-		let email = req.body['email']
+		let email = JSON.parse(req.body)['email']
 		const hookURL = process.env.airtable_hook
-		const payload = `email=${email}&date=${new Date().toLocaleDateString('en-US')}`
+		const date = `${new Date().getDate()}/${new Date().getMonth() }/${new Date().getFullYear()}`
+		const payload = `email=${email}&date=${date}`
 
 	  fetch(hookURL, {
 		  method: 'post',

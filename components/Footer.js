@@ -117,7 +117,7 @@ class Footer extends React.Component {
 							<a
 								className="text-md text-black underline"
 								href="mailto:info@zenteach.co.uk"
-								target="_blank"
+								target="_blank" rel="noreferrer"
 							>
 								info@zenteach.co.uk
 							</a>

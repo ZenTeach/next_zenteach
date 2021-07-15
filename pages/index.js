@@ -3,15 +3,11 @@ import Feature from '../components/Feature'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import * as React from 'react'
 
-// mailchimp.setConfig({
-// 	apiKey: "832600d4ac25ae9f40b9b4baee19417c-us7",
-// 	server: "us7",
-//   });
 
 const hookURL = process.env.airtable_hook
 class Index extends React.Component {
 	async sendUserWebhook() {
-		let email = document.querySelector('input[name="user_email"]').text
+		let email = document.querySelector('input#requester_email').value
 		let data = {
 			'email': email,
 		}
@@ -20,8 +16,12 @@ class Index extends React.Component {
 			method: 'POST',
 			body: JSON.stringify(data)
 		}).then(response => {
-			if (response.status == 200) {
-				// Congratulate the user
+			if (response.status === 200) {
+				document.querySelector('#demo_request_success').classList.toggle('hidden')
+				setInterval(() => {
+					document.querySelector('#demo_request_success').classList.toggle('hidden')
+				}, 2500)
+				document.querySelector('input#requester_email').value="Email..."
 			}
 			else {
 				// report the error
@@ -43,7 +43,7 @@ class Index extends React.Component {
 					<div className="mt-4 flex">
 						<input
 							type="email"
-							name="user_email"
+							id="requester_email"
 							className="flex-1 px-4 py-2 h-10 lg:h-12 border border-grey-light round text-gray-700 placeholder-gray-400
 							appearance-none
 							focus:outline-none
@@ -53,11 +53,13 @@ class Index extends React.Component {
 							placeholder="Email..."/>
 						<button type="submit"
 							className="bg-black text-white rounded-sm h-50 text-xs p-2"
-							onClick={this.sendUserToMailchimp}>
+							onClick={this.sendUserWebhook}>
 							Request Demo
 						</button>
 					</div>
-
+					<div className="hidden" id="demo_request_success">
+						<p className="text-xs" id="demo_request_success_message">Request submitted!</p>
+					</div>
 				</div>
 				</div>
 					<Feature
