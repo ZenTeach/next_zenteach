@@ -73,7 +73,6 @@ const PrivacyPolicy = () => {
 					<a
 						className="text-blue"
 						href="https://aws.amazon.com/compliance/iso-27001-faqs/"
-						rel="noopener"
 						rel="noreferrer"
 					>
 						https://aws.amazon.com/compliance/iso-27001-faqs/
@@ -82,7 +81,6 @@ const PrivacyPolicy = () => {
 					For more information about AWS security, please visit this webpage:
 					<a
 					className="https://aws.amazon.com/security/"
-						rel="noopener"
 						rel="noreferrer"
 						href="https://aws.amazon.com/security/"
 					>
