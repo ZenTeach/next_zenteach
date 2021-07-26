@@ -80,7 +80,6 @@ class Footer extends React.Component {
 							<div className="space-x-2 inline-flex flex-row justify-between w-1/2">
 								<span>
 									<a href="https://www.twitter.com/getzenteach"
-										rel="noopener"
 										rel="noreferrer"
 										target="_blank">
 										<FontAwesomeIcon icon={["fab", "twitter"]}/>
@@ -88,7 +87,6 @@ class Footer extends React.Component {
 								</span>
 								<span>
 									<a href="https://www.linkedin.com/company/zenteach"
-										rel="noopener"
 										rel="noreferrer"
 										target="_blank">
 										<FontAwesomeIcon icon={["fab", "linkedin"]}/>
@@ -96,7 +94,6 @@ class Footer extends React.Component {
 								</span>
 								<span>
 									<a href="https://github.com/ZenTeach"
-										rel="noopener"
 										rel="noreferrer"
 										target="_blank">
 										<FontAwesomeIcon icon={["fab", "github"]}/>
@@ -104,7 +101,6 @@ class Footer extends React.Component {
 								</span>
 								<span>
 									<a href="https://zenteach.medium.com/"
-										rel="noopener"
 										rel="noreferrer"
 										target="_blank">
 										<FontAwesomeIcon icon={["fab", "medium"]}/>
