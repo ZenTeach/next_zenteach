@@ -6,7 +6,7 @@ const AboutUs = () => {
 		<SiteLayout>
 			<div className="flex flex-row">
 				<div className="w-full bg-gradient-to-r from-rose-50 to-rose-100">
-					<div className="text-5xl text-center">Meet the Team</div>
+					<div className="text-5xl p-3 text-center">Meet the Team</div>
 				</div>
 			</div>
 			<div className="w-full flex justify-center m-5 p-8 flex">

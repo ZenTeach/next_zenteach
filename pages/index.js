@@ -40,23 +40,11 @@ class Index extends React.Component {
 					</span>
 				</h1>
 				<div className="mt-12 text-center">
-					<div className="mt-4 flex">
-						<input
-							type="email"
-							id="requester_email"
-							className="flex-1 px-4 py-2 h-10 lg:h-12 border border-grey-light round text-gray-700 placeholder-gray-400
-							appearance-none
-							focus:outline-none
-							focus:placeholder-transparent
-							focus:ring-2
-							focus:ring-black-400"
-							placeholder="Email..."/>
-						<button type="submit"
-							className="bg-black text-white rounded-sm h-50 text-xs p-2"
-							onClick={this.sendUserWebhook}>
-							Request Demo
-						</button>
-					</div>
+					<a type="submit"
+						className="bg-black text-white rounded-sm h-100 text-lg p-2"
+						href="mailto:info@zenteach.co.uk?subject=Request%20access%20to%20portal">
+						Request Demo
+					</a>
 					<div className="hidden" id="demo_request_success">
 						<p className="text-xs" id="demo_request_success_message">Request submitted!</p>
 					</div>
@@ -79,7 +67,7 @@ class Index extends React.Component {
 										<img
 											className="object-scale-down h-12 w-auto p-3 object-center rounded-lg"
 											alt="feedback"
-											src="https://zenteach.co.uk/wp-content/uploads/elementor/thumbs/Diagnostic-Question-os9l6tr0gdu8eh0jwuz4i285b4wxcin96yoedabssk.png"/>
+											src="extern/images/Diagnostic-Question-os9l6tr0gdu8eh0jwuz4i285b4wxcin96yoedabssk.png"/>
 										<p>Access Hundreds of Diagnostic Questions</p>
 									</span>
 								</li>
@@ -88,7 +76,7 @@ class Index extends React.Component {
 										<img
 											className="object-scale-down h-12 w-auto p-3 object-center rounded-lg"
 											alt="custom quizzes"
-											src="https://zenteach.co.uk/wp-content/uploads/elementor/thumbs/Custom-Quizzes-os9l2s2112augkmlz7v74akp9spgc0rz8a3x6ozbhk.png"/>
+											src="extern/images/Custom-Quizzes-os9l2s2112augkmlz7v74akp9spgc0rz8a3x6ozbhk.png"/>
 										<p>Create Custom Quizzes</p>
 									</span>
 								</li>
@@ -97,7 +85,7 @@ class Index extends React.Component {
 										<img
 											className="object-scale-down h-12 w-auto p-3 object-center rounded-lg"
 											alt="knwoledge gap"
-											src="https://zenteach.co.uk/wp-content/uploads/elementor/thumbs/knowledge-gap-2-os9lbe8roe3gvw41nxy2z4atay8kw4zeexe5k07eg8.png"/>
+											src="extern/images/knowledge-gap-2-os9lbe8roe3gvw41nxy2z4atay8kw4zeexe5k07eg8.png"/>
 										<p>Identify Knowledge Gaps</p>
 									</span>
 								</li>
@@ -145,7 +133,7 @@ class Index extends React.Component {
 										<img
 										className="object-scale-down h-12 w-auto p-3 object-center rounded-lg"
 										alt="report"
-										src="https://zenteach.co.uk/wp-content/uploads/elementor/thumbs/report-os9nv834olgwre3s8jdgbyicz98b6gda9mjw41m2ic.png"/>
+										src="extern/images/report-os9nv834olgwre3s8jdgbyicz98b6gda9mjw41m2ic.png"/>
 										<p> Actionable Quiz Reports </p>
 									</span>
 								</li>
@@ -154,7 +142,7 @@ class Index extends React.Component {
 										<img
 											className="object-scale-down h-12 w-auto p-3 object-center rounded-lg"
 											alt="resources"
-											src="https://zenteach.co.uk/wp-content/uploads/elementor/thumbs/slides-os9nv4brx9bshs4gkaokhc90meo1vyjx1s7ual3e5i.png"/>
+											src="extern/images/slides-os9nv4brx9bshs4gkaokhc90meo1vyjx1s7ual3e5i.png"/>
 										<p>Access Lesson Resources</p>
 									</span>
 								</li>
@@ -193,7 +181,7 @@ class Index extends React.Component {
 									<img
 										className="object-scale-down h-12 w-auto p-3 object-center rounded-lg"
 										alt="re-quizzing"
-										src="https://zenteach.co.uk/wp-content/uploads/elementor/thumbs/Retest-os9nvdq5vsmf94f2bqx5fd8jkqqvtxjwgbf674ktis.png"/>
+										src="extern/images/Retest-os9nvdq5vsmf94f2bqx5fd8jkqqvtxjwgbf674ktis.png"/>
 										<p>Re-Quizzing</p>
 									</span>
 								</li>
@@ -202,7 +190,7 @@ class Index extends React.Component {
 										<img
 											className="object-scale-down h-12 w-auto p-3 object-center rounded-lg"
 											alt="tracking knowledge gaps"
-											src="https://zenteach.co.uk/wp-content/uploads/elementor/thumbs/magnifying-glass-os9nvhhin4rkjk9lpsjnpcadya8copytsu1448f8tw.png"/>
+											src="extern/images/magnifying-glass-os9nvhhin4rkjk9lpsjnpcadya8copytsu1448f8tw.png"/>
 										<p> Automatic Tracking of Knowledge Gaps </p>
 									</span>
 								</li>
@@ -211,7 +199,7 @@ class Index extends React.Component {
 										<img
 											className="object-scale-down h-12 w-auto p-3 object-center rounded-lg"
 											alt="knowledge gap insights"
-											src="https://zenteach.co.uk/wp-content/uploads/elementor/thumbs/insight-os9nvhhin4rkjk9lpsjnpcadya8copytsu1448f8tw.png"/>
+											src="extern/images/insight-os9nvhhin4rkjk9lpsjnpcadya8copytsu1448f8tw.png"/>
 										<p> Insights Into Persistent Knowledge Gaps </p>
 									</span>
 								</li>
@@ -249,7 +237,7 @@ class Index extends React.Component {
 										<img
 											className="object-scale-down h-12 w-auto p-3 object-center rounded-lg"
 											alt="lesson resources"
-											src="https://zenteach.co.uk/wp-content/uploads/elementor/thumbs/slides-os9nv4brv2dywvprucn0djb3kjggyde4r6zkzikj5g.png"/>
+											src="extern/images/slides-os9nv4brv2dywvprucn0djb3kjggyde4r6zkzikj5g.png"/>
 										<p>Teaching: Lesson Resources</p>
 									</span>
 								</li>
@@ -258,7 +246,7 @@ class Index extends React.Component {
 										<img
 											className="object-scale-down h-12 w-auto p-3 object-center rounded-lg"
 											alt="question library"
-											src="https://zenteach.co.uk/wp-content/uploads/elementor/thumbs/Diagnostic-Question-os9l6tqzwndv777l55ipz6jdv0xwiisqobvypaxsqc.png"/>
+											src="extern/images/Diagnostic-Question-os9l6tqzwndv777l55ipz6jdv0xwiisqobvypaxsqc.png"/>
 										<p>Quizzing: Diagnostic Question Library</p>
 									</span>
 								</li>
@@ -267,7 +255,7 @@ class Index extends React.Component {
 										<img
 											className="object-scale-down h-12 w-auto p-3 object-center rounded-lg"
 											alt="feedback generation"
-											src="https://zenteach.co.uk/wp-content/uploads/elementor/thumbs/feedback-os9nvawnbaikaaj5s7p9pvy5sl4s6u8pfxgprap01g.png"/>
+											src="extern/images/feedback-os9nvawnbaikaaj5s7p9pvy5sl4s6u8pfxgprap01g.png"/>
 										<p>Feedback: Individual, Constructive, Specific</p>
 									</span>
 								</li>
