@@ -46,10 +46,17 @@ class Footer extends React.Component {
 										<FontAwesomeIcon icon={["fab", "medium"]}/>
 									</Link>
 								</span>
+								<span>
+									<Link passHref href="https://www.youtube.com/channel/UCXmgBfoSDoTmurNW02Z-lTA/"
+										rel="noreferrer"
+										target="_blank">
+										<FontAwesomeIcon icon={["fab", "youtube"]}/>
+									</Link>
+								</span>
 							</div>
 						</div>
 						<div className="my-6">
-							<p>Or drop us Link line at</p>
+							<p>Or drop us line at</p>
 							<Link
 								passHref
 								className="text-md text-black underline"
