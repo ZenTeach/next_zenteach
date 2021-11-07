@@ -22,35 +22,45 @@ class Footer extends React.Component {
 									<Link passHref href="https://www.twitter.com/getzenteach"
 										rel="noreferrer"
 										target="_blank">
-										<FontAwesomeIcon icon={["fab", "twitter"]}/>
+										<a>
+											<FontAwesomeIcon icon={["fab", "twitter"]}/>
+										</a>
 									</Link>
 								</span>
 								<span>
 									<Link passHref href="https://www.linkedin.com/company/zenteach"
 										rel="noreferrer"
 										target="_blank">
-										<FontAwesomeIcon icon={["fab", "linkedin"]}/>
+										<a>
+											<FontAwesomeIcon icon={["fab", "linkedin"]}/>
+										</a>
 									</Link>
 								</span>
 								<span>
 									<Link passHref href="https://github.com/ZenTeach"
 										rel="noreferrer"
 										target="_blank">
-										<FontAwesomeIcon icon={["fab", "github"]}/>
+										<a>
+											<FontAwesomeIcon icon={["fab", "github"]}/>
+										</a>
 									</Link>
 								</span>
 								<span>
 									<Link passHref href="https://zenteach.medium.com/"
 										rel="noreferrer"
 										target="_blank">
-										<FontAwesomeIcon icon={["fab", "medium"]}/>
+										<a>
+											<FontAwesomeIcon icon={["fab", "medium"]}/>
+										</a>
 									</Link>
 								</span>
 								<span>
 									<Link passHref href="https://www.youtube.com/channel/UCXmgBfoSDoTmurNW02Z-lTA/"
 										rel="noreferrer"
 										target="_blank">
-										<FontAwesomeIcon icon={["fab", "youtube"]}/>
+										<a>
+											<FontAwesomeIcon icon={["fab", "youtube"]}/>
+										</a>
 									</Link>
 								</span>
 							</div>

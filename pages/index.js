@@ -2,7 +2,7 @@ import SiteLayout from '../components/SiteLayout'
 import Feature from '../components/Feature'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import * as React from 'react'
-
+import Subscribe from '../components/Subscribe'
 
 const hookURL = process.env.airtable_hook
 class Index extends React.Component {
@@ -273,6 +273,7 @@ class Index extends React.Component {
 								</a>
 						</div>
 					</Feature>
+					<Subscribe />
 		  	</SiteLayout>
 		)
 	}

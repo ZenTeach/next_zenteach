@@ -7,11 +7,11 @@ import { fab,
 				faTwitter,
 				faGithub,
 				faMedium } from '@fortawesome/free-brands-svg-icons'
-import { faArrowCircleRight } from '@fortawesome/free-solid-svg-icons'
+import { fas, faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 
 config.autoAddCss = false
-library.add(fab, faLinkedin, faTwitter, faGithub, faMedium, faArrowCircleRight)
+library.add(fas, fab, faLinkedin, faTwitter, faGithub, faMedium, faTimesCircle, faCheckCircle)
 
 class MyApp extends App {
   render() {
