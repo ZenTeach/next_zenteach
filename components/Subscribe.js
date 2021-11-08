@@ -10,8 +10,17 @@ const Subscribe = forwardRef((_props, _ref) => {
 	const subscribe = async (e) => {
 	  e.preventDefault()
 
+	  const email_regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+	  if(email === '') {
+		  setState('Error')
+		  setErrorMsg('Please fill out the field.')
+	  } else if(email_regex.test(String(email).toLowerCase()) !== true) {
+		setState('Error')
+		setErrorMsg('Please enter your valid email.')
+	  }
+	  else {
+
 	  	setState('Loading')
-		console.log(`Subscribing ${email}`)
 		fetch('/api/subscribe', {
 			method: 'POST',
 			cache: 'no-cache',
@@ -39,7 +48,14 @@ const Subscribe = forwardRef((_props, _ref) => {
 			setSubscribeButton('error')
 			setErrorMsg(e.response.data)
 		})
-		// Set timeout for messages
+	  }
+
+		setTimeout(function() {
+			setState('')
+			setSubscribeButton('')
+			setErrorMsg('')
+			setEmail('')
+		}, 5000)
 	}
 
 	return (
@@ -70,10 +86,14 @@ const Subscribe = forwardRef((_props, _ref) => {
 				className="bg-black text-white rounded-sm h-auto text-xs p-3"
 				onClick={subscribe}
 			  >
-				{subscribeButton === '' && (
+				{ state === 'Loading' && (
+					<span className="">
+						<FontAwesomeIcon className="fa-spin" icon={['fas', 'spinner']} />
+					</span>
+				)}
+				{subscribeButton === '' && state !== 'Loading' && (
 					<p>Subscribe</p>
 				)}
-				{/* TODO: Add a spinner here */}
 				{subscribeButton === 'success' && (
 					<span className="mx-2">
 						<FontAwesomeIcon className="fill-current text-green" icon={["fas", "check"]}/>
