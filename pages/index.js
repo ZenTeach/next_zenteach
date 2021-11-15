@@ -55,7 +55,7 @@ class Index extends React.Component {
 						headline="Identify Knowledge Gaps"
 						image="output.gif"
 					>
-						<p className="mx-4 text-sm font-light tracking-wide text-left text-black title-font">
+						<p className="mx-4 lg:text-md text-xl font-light lg:tracking-wide tracking-normal text-left text-black title-font">
 							Create custom quizzes on any topic you’re currently teaching.
 							Access hundreds of high quality diagnostic questions that are
 							designed by teachers to help you identify and target your students’ knowledge gaps.
@@ -110,7 +110,7 @@ class Index extends React.Component {
 						headline="Automatic & Constructive Feedback"
 						image="Feedback.jpg"
 					>
-						<p className="mx-4 text-sm font-light tracking-wide text-left text-black title-font">
+						<p className="mx-4 lg:text-md text-xl font-light lg:tracking-wide tracking-normal text-left text-black title-font">
 							ZenTeach provides students with highly specific and constructive feedback so that students can target their knowledge gaps independently.
 							Receive actionable quiz reports that support your lesson planning and access our growing library of quality resources that we have made so you don’t have to.
 						</p>
@@ -167,7 +167,7 @@ class Index extends React.Component {
 						headline="Hands-off Tracking"
 						image="hands_off_tracking.jpg"
 					>
-						<p className="mx-4 text-sm font-light tracking-wide text-left text-black title-font">
+						<p className="mx-4 lg:text-md text-xl font-light lg:tracking-wide tracking-normal text-left text-black title-font">
 							Mentally tracking individual student progress in detail is impossible.
 							ZenTeach automatically re-quizzes students on the content they got wrong
 							on previous quizzes, helping them along with learning resources. Only when
@@ -224,7 +224,7 @@ class Index extends React.Component {
 						headline="Teach, Quiz, Feedback, Repeat"
 						image="teach_cycle.jpg"
 					>
-						<p className="mx-4 text-sm font-light tracking-wide text-left text-black title-font">
+						<p className="mx-4 lg:text-md text-xl font-light lg:tracking-wide tracking-normal text-left text-black title-font">
 							We want to support teachers at every point in the teaching and learning cycle.
 							With the ZenTeach Knowledge Graph we can connect our content in more meaningful ways,
 							supporting teachers at every point in the teaching and learning cycle as well as
