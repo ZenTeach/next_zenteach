@@ -60,10 +60,10 @@ const Subscribe = forwardRef((_props, _ref) => {
 
 	return (
 	  <div className="h-full bg-red-200 bg-opacity-25 border-gray-400 flex flex-col justify-center p-8 m-8">
-		<h4 className="text-3xl mt-2 font-bold">Subscribe to our newsletter</h4>
-		<p className="text-l mt-2">
-		  Get to notified on quality articles about frontend development and more
-		  sent to your inbox. I&apos;ll send you an email once a month, no spam.
+		<h4 className="text-xl md:text-3xl mt-2 font-bold">Subscribe to our newsletter</h4>
+		<p className="text-sm md:text-l mt-2">
+		  Get to notified as we publish articles on our progress and more
+		  sent to your inbox. We&apos;ll send you an email once a month, no spam.
 		</p>
 		<form onSubmit={subscribe} className="rounded pt-6 pb-8 mb-4">
 		  <div className="mt-4 flex text-center">
@@ -75,7 +75,7 @@ const Subscribe = forwardRef((_props, _ref) => {
 				type="email"
 				value={email}
 				onChange={(e) => setEmail(e.target.value)}
-				className="p-2 border border-grey-light round text-grey-dark text-md h-auto"
+				className="p-2 border border-grey-light round text-grey-dark text-sm md:text-md h-auto"
 				placeholder="Your email address"
 			  />
 			</div>
@@ -83,7 +83,7 @@ const Subscribe = forwardRef((_props, _ref) => {
 			  <button
 				disabled={state === 'Loading'}
 				type="submit"
-				className="bg-black text-white rounded-sm h-auto text-xs p-3"
+				className="bg-black text-white rounded-sm h-auto text-sm p-2 md:p-3"
 				onClick={subscribe}
 			  >
 				{ state === 'Loading' && (
@@ -108,10 +108,10 @@ const Subscribe = forwardRef((_props, _ref) => {
 			</div>
 		  </div>
 		  {state === 'Error' && (
-					<p className="error-state">{errorMsg}</p>
+					<p className="text-sm md:text-l error-state">{errorMsg}</p>
 				)}
 		  {state === 'Success' && (
-			<p>Awesome, you&apos;ve been subscribed!</p>
+			<p className="text-sm md:text-l">Awesome, you&apos;ve been subscribed!</p>
 		  )}
 		</form>
 	  </div>

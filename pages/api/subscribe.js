@@ -44,10 +44,3 @@ const subscribe = async (req, res) => {
 
 export default subscribe
 
-// mailchimp add member to list: https://mailchimp.com/developer/marketing/api/list-members/add-member-to-list/
-//steps:
-// get mailchimp api key, audience id,
-// install axios and setup  post request using async
-// pass the data need ( data, options and url), make sure not to make any mistakes in the url and data
-// infact with any parameter being passed cause it could lead to an error message
-// move to componnents/subscribe
