@@ -6,15 +6,15 @@ class Footer extends React.Component {
 	render() {
 		return (
 			<div className="h-full w-full bg-gray-100 bg-opacity-25 border-t border-gray-400 flex place-content-center  p-4">
-				<div className="sm:w-1/2 md:w-1/2 w-1/3 h-auto justify-content-center mx-8 px-8 flex-shrink">
-					<div className="font-normal text-xl space-y-2 w-full mb-2">
+				<div className="md:w-1/2 w-1/2 h-auto justify-content-center md:mx-8 md:px-8 flex-shrink">
+					<div className="font-normal text-sm md:text-xl md:space-y-2 w-full mb-2">
 						<Link passHref href="/">
-							<img className="h-8 w-8 float-left" src="/logo.png" alt="" />
+							<img className="h-4 md:h-8 w-4 md:w-8 float-left" src="/logo.png" alt="" />
 						</Link>
 						<span className="mx-2">ZenTeach</span>
 					</div>
 
-					<div className="my-6">
+					<div className="my-2 md:my-6 text-sm md:text-l">
 						<p>Follow us on</p>
 						<div className="space-x-2 inline-flex flex-row justify-start w-1/2">
 							<span>
@@ -64,7 +64,7 @@ class Footer extends React.Component {
 							</span>
 						</div>
 					</div>
-					<div className="my-6">
+					<div className="my-2 md:my-6 text-sm md:text-l">
 						<p>Or drop us line at</p>
 						<Link
 							passHref
@@ -76,40 +76,40 @@ class Footer extends React.Component {
 						</Link>
 					</div>
 				</div>
-				<div className="sm:w-1/2 md:w-1/2 w-1/3 mx-8 px-8 h-auto justify-center">
-					<div className="font-bold text-xl mb-2">Company</div>
+				<div className="md:w-1/2 w-1/2 h-auto justify-content-center md:mx-8 md:px-8 flex-shrink">
+					<div className="font-bold text-md md:text-xl mb-2">Company</div>
 					<ul className="list-reset leading-normal">
 						<li className="hover:text-orange text-grey-darker">
 							<Link passHref href='/about_us'>
-								<span className="inline-block cursor-pointer bg-white border-none text-red font-medium rounded-lg leading-tight">
+								<span className="inline-block cursor-pointer bg-white border-none text-red text-sm md:text-l rounded-lg leading-tight">
 									About Us
 								</span>
 							</Link>
 						</li>
 						<li className="hover:text-orange text-grey-darker">
 							<Link passHref href='/vision'>
-								<span className="inline-block cursor-pointer bg-white border-none text-red font-medium rounded-lg leading-tight">
+								<span className="inline-block cursor-pointer bg-white border-none text-red text-sm md:text-l rounded-lg leading-tight">
 									Vision
 								</span>
 							</Link>
 						</li>
 						<li className="hover:text-orange text-grey-darker">
 							<Link passHref href='/technology'>
-								<span className="inline-block cursor-pointer bg-white border-none text-red font-medium rounded-lg leading-tight">
+								<span className="inline-block cursor-pointer bg-white border-none text-red text-sm md:text-l rounded-lg leading-tight">
 								Technology
 								</span>
 							</Link>
 						</li>
 						<li className="hover:text-orange text-grey-darker">
 							<Link passHref href='/terms_and_conditions'>
-								<span className="inline-block cursor-pointer bg-white border-none text-red font-medium rounded-lg leading-tight">
+								<span className="inline-block cursor-pointer bg-white border-none text-red text-sm md:text-l rounded-lg leading-tight">
 									Terms and Conditions
 								</span>
 							</Link>
 						</li>
 						<li className="hover:text-orange text-grey-darker">
 							<Link passHref href="/privacy_policy">
-								<span className="inline-block cursor-pointer bg-white border-none text-red font-medium rounded-lg leading-tight">
+								<span className="inline-block cursor-pointer bg-white border-none text-red text-sm md:text-l rounded-lg leading-tight">
 									Privacy Policy
 								</span>
 							</Link>
