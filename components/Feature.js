@@ -20,7 +20,7 @@ export default class Feature extends React.Component {
 					<div className="w-full h-50 md:h-full flex-grow order-first md:order-last lg:w-5/6 lg:max-w-lg md:w-1/2 lg:p-24 p-4">
 						<img
 							alt="hero"
-							className="w-1/2 md:w-full object-cover md:h-auto md:w-auto object-center md:rounded-lg"
+							className="w-2/5 md:w-full object-cover md:h-auto md:w-auto object-center md:rounded-lg"
 							src={this.props.image} />
 					</div>
 				</div>
