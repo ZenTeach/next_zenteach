@@ -2,11 +2,11 @@ import SiteLayout from '../components/SiteLayout'
 
 const PrivacyPolicy = () => {
 	return (
-<SiteLayout>
-			<div className="h-full bg-grey mt-8 sm:mt-0 sm:py-12 max-w-4xl mx-auto px-8">
-				<h1 className="text-5xl text-center font-bold my-2">Privacy Policy</h1>
+		<SiteLayout>
+			<div className="h-full bg-grey mt-8 mb-3 md:mb-0 sm:mt-0 sm:py-12 max-w-4xl mx-auto px-8">
+				<h1 className="text-2xl md:text-5xl text-center font-bold my-2">Privacy Policy</h1>
 				<small className="text-xs font-bold italic my-2">Last updated: July 9, 2020</small>
-				<p>
+				<p className="my-2 text-sm md:text-md">
 					ZenTeach (“us”, “we”, or “our”) operates the ZenTeach website (the “Service”).
 
 					This page informs you of our policies regarding the collection, use and disclosure
@@ -20,9 +20,9 @@ const PrivacyPolicy = () => {
 					this policy. Unless otherwise defined in this Privacy Policy, terms used in this
 					Privacy Policy have the same meanings as in our Terms and Conditions, accessible at https://zenteach.co.uk
 				</p>
-				<h3 className="text-3xl font-bold">Information Collection And Uses</h3>
-				<h5 className="text-xl font-bold">Teacher member.</h5>
-				<p className="my-2">
+				<h3 className="text-l md:text-3xl font-bold">Information Collection And Uses</h3>
+				<h5 className="text-sm md:text-xl font-bold">Teacher member.</h5>
+				<p className="my-2 text-sm md:text-md">
 					While using our Service, we may ask you to provide us with certain personally identifiable
 					information that can be used to contact or identify you. Personally identifiable information
 					(“Personal Information”) may include, but is not limited to:
@@ -51,14 +51,14 @@ const PrivacyPolicy = () => {
 					to us in connection with the use of the Platform on the terms set out in our terms and conditions and
 					this privacy policy.
 				</p>
-				<h5 className="text-xl font-bold">What is the lawful basis for storing this information?</h5>
-				<p className="my-2">
+				<h5 className="text-l md:text-3xl font-bold">What is the lawful basis for storing this information?</h5>
+				<p className="my-2 text-sm md:text-md">
 					This information is needed for teachers and students to be able to use the ZenTeach
 					platform for online testing and revision, which is the core of ZenTeach’s service.
 				</p>
 
-				<h3 className="text-3xl font-bold">Log Data</h3>
-				<p className="my-2">
+				<h3 className="text-l md:text-3xl font-bold">Log Data</h3>
+				<p className="my-2 text-sm md:text-md">
 					We collect information that your browser sends whenever you visit our
 					Service (“Log Data”). This Log Data may include information such as your computer’s
 					Internet Protocol (“IP”) address, browser type, browser version, the pages of our
@@ -69,26 +69,26 @@ const PrivacyPolicy = () => {
 					provided by Amazon Web Services (AWS). AWS data centres are compliant with the
 					international information security standard, ISO 27001.
 
-					For more information about AWS’s ISO 27001 certification, please visit this webpage:
-					<a
-						className="text-blue"
+					For more information about AWS’s ISO 27001 certification, please visit this :
+					<br /> <a
+						className="text-blue overflow-x md:overflow-none"
 						href="https://aws.amazon.com/compliance/iso-27001-faqs/"
 						rel="noreferrer"
 					>
-						https://aws.amazon.com/compliance/iso-27001-faqs/
+						 webpage.
 					</a>
-
-					For more information about AWS security, please visit this webpage:
+					<br />
+					For more information about AWS security, please visit this
 					<a
-					className="https://aws.amazon.com/security/"
+					className="overflow-x"
 						rel="noreferrer"
 						href="https://aws.amazon.com/security/"
 					>
-						https://aws.amazon.com/security/
+						webpage
 					</a>
 				</p>
-				<h3 className="text-3xl font-bold">Cookies</h3>
-				<p className="my-2">
+				<h3 className="text-l md:text-3xl font-bold">Cookies</h3>
+				<p className="my-2 text-sm md:text-md">
 					Cookies are files with small amount of data, which may include an
 					anonymous unique identifier. Cookies are sent to your browser from a web site
 					and stored on your computer’s hard drive.
@@ -98,8 +98,8 @@ const PrivacyPolicy = () => {
 					accept cookies, you may not be able to use some portions of our Service.
 				</p>
 
-				<h3 className="text-3xl font-bold">Service Providers</h3>
-				<p className="my-2">
+				<h3 className="text-l md:text-3xl font-bold">Service Providers</h3>
+				<p className="my-2 text-sm md:text-md">
 					We may employ third party companies and individuals to facilitate our
 					Service, to provide the Service on our behalf, to perform
 					Service-related services or to assist us in analyzing how our Service is used.
@@ -109,16 +109,16 @@ const PrivacyPolicy = () => {
 					it for any other purpose.
 				</p>
 
-				<h3 className="text-3xl font-bold">Security</h3>
-				<p className="my-2">
+				<h3 className="text-l md:text-3xl font-bold">Security</h3>
+				<p className="my-2 text-sm md:text-md">
 					The security of your Personal Information is important to us, but remember that no
 					method of transmission over the Internet, or method of electronic storage is
 					100% secure. While we strive to use commercially acceptable means to protect
 					your Personal Information, we cannot guarantee its absolute security.
 				</p>
 
-				<h3 className="text-3xl font-bold">Links To Other Sites</h3>
-				<p className="my-2">
+				<h3 className="text-l md:text-3xl font-bold">Links To Other Sites</h3>
+				<p className="my-2 text-sm md:text-md">
 					Our Service may contain links to other sites that are not operated by us. If you click
 					on a third party link, you will be directed to that third party’s site. We strongly
 					advise you to review the Privacy Policy of every site you visit.
@@ -127,8 +127,8 @@ const PrivacyPolicy = () => {
 					policies or practices of any third party sites or services.
 				</p>
 
-				<h3 className="text-3xl font-bold">Children’s Privacy</h3>
-				<p className="my-2">
+				<h3 className="text-l md:text-3xl font-bold">Children’s Privacy</h3>
+				<p className="my-2 text-sm md:text-md">
 					Our Service does not address anyone under the age of 18 (“Children”).
 
 					We do not knowingly collect personally identifiable information from children
@@ -137,13 +137,13 @@ const PrivacyPolicy = () => {
 					that a child under 18 has provided us with Personal Information, we will delete such information from our servers immediately.
 				</p>
 
-				<h3 className="text-3xl font-bold">Compliance With Laws</h3>
-				<p className="my-2">
+				<h3 className="text-l md:text-3xl font-bold">Compliance With Laws</h3>
+				<p className="my-2 text-sm md:text-md">
 					We will disclose your Personal Information where required to do so by law
 					or subpoena.
 				</p>
-				<h3 className="text-3xl font-bold">Changes To This Privacy Policy</h3>
-				<p className="my-2">
+				<h3 className="text-l md:text-3xl font-bold">Changes To This Privacy Policy</h3>
+				<p className="my-2 text-sm md:text-md">
 					We may update our Privacy Policy from time to time. We will notify you of
 					any changes by posting the new Privacy Policy on this page.
 
@@ -151,8 +151,8 @@ const PrivacyPolicy = () => {
 					changes. Changes to this Privacy Policy are effective when they are posted on this page.
 				</p>
 
-				<h3 className="text-3xl font-bold">Contact Us</h3>
-				<p className="my-2b">
+				<h3 className="text-l md:text-3xl font-bold">Contact Us</h3>
+				<p className="my-2b text-sm md:text-md">
 					If you have any questions about these Terms, please contact us (info@zenteach.co.uk).
 				</p>
 			</div>
