@@ -69,9 +69,9 @@ const PrivacyPolicy = () => {
 					provided by Amazon Web Services (AWS). AWS data centres are compliant with the
 					international information security standard, ISO 27001.
 
-					For more information about AWS’s ISO 27001 certification, please visit this :
-					<br /> <a
-						className="text-blue overflow-x md:overflow-none"
+					For more information about AWS’s ISO 27001 certification, please visit this
+					<a
+						className="text-blue mx-1 overflow-x md:overflow-none"
 						href="https://aws.amazon.com/compliance/iso-27001-faqs/"
 						rel="noreferrer"
 					>
@@ -80,7 +80,7 @@ const PrivacyPolicy = () => {
 					<br />
 					For more information about AWS security, please visit this
 					<a
-					className="overflow-x"
+					className="overflow-x mx-1"
 						rel="noreferrer"
 						href="https://aws.amazon.com/security/"
 					>

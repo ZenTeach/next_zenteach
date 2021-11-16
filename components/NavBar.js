@@ -14,7 +14,7 @@ const NavBar = ({ children }) => (
 			</div>
 			<div className="w-1/3 md:w-1/2 py-2 text-center lg:text-right lg:py-2 lg:px-2 lg:w-1/3">
 				<a
-					className="inline-block lg:ml-2 md:ml-24 lg:text-red-400 text-white bg-red-400 lg:bg-gray-100 lg:border lg:border-red-400 lg:p-2 md:p-0 p-2 hover:underline rounded font-small text-sm md:text-xl lg:text-sm overflow-hidden"
+					className="inline-block lg:ml-2 md:ml-24 lg:text-red-400 text-white bg-red-400 lg:bg-gray-100 lg:border lg:border-red-400 lg:p-2 md:p-4 p-2 hover:underline rounded font-small text-xs md:text-md lg:text-md overflow-hidden"
 					rel="noreferrer"
 					href="https://portal.zenteach.co.uk"
 					target="_blank">
