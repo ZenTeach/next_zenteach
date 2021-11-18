@@ -5,7 +5,7 @@ import Link from 'next/link'
 class Footer extends React.Component {
 	render() {
 		return (
-			<div className="h-full w-full bg-gray-100 bg-opacity-25 border-t border-gray-400 flex place-content-center  p-4">
+			<div className="h-full w-full bg-gray-100 bg-opacity-25 border-t border-gray-400 flex place-content-center p-2 md:p-4">
 				<div className="md:w-1/2 w-1/2 h-auto justify-content-center md:mx-8 md:px-8 flex-shrink">
 					<div className="font-normal text-sm md:text-xl md:space-y-2 w-full mb-2">
 						<Link passHref href="/">
