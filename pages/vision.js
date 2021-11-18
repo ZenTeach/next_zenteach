@@ -2,7 +2,7 @@ import SiteLayout from '../components/SiteLayout'
 
 const Vision = () => {
 	return (
-		<SiteLayout>
+		<SiteLayout title="ZenTeach - Vision">
 			<div className="lg:h-full md:h-screen bg-grey mx-auto sm:mt-0 sm:py-12 max-w-4xl">
 				<div className="flex flex-col md:flex-row md:p-4 p-2">
 					<div className="md:w-2/5 w-full">

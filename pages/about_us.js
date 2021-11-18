@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const AboutUs = () => {
 	return (
-		<SiteLayout>
+		<SiteLayout title="ZenTeach - About">
 			<div className="h-screen md:h-screen mt-4 pt-4">
 				<div className="flex flex-row">
 					<div className="w-full bg-gradient-to-r from-rose-50 to-rose-100">

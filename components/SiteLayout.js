@@ -1,14 +1,31 @@
-import NavBar from "./NavBar";
-import Footer from './Footer';
+import * as React from 'react'
+import Head from 'next/head'
+import PropTypes from 'prop-types'
+import NavBar from "./NavBar"
+import Footer from './Footer'
 
-const SiteLayout = ({ children }) => (
-  <div className="bg-white lg:antialiased">
-		<div className="max-w-full sm:max-w-full mx-auto">
-			<NavBar />
-		</div>
-    <div>{children}</div>
-		<Footer />
-  </div>
-);
+export default class SiteLayout extends React.Component {
+	render() {
+		return (
+			<div className="bg-white lg:antialiased">
+					<Head>
+						<title>{this.props.title}</title>
+						<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+					</Head>
+					<div className="max-w-full sm:max-w-full mx-auto">
+						<NavBar />
+					</div>
+				<div>{this.props.children}</div>
+					<Footer />
+			</div>
+		);
+	}
+}
 
-export default SiteLayout;
+SiteLayout.defaultProps = {
+	title: 'Zenteach',
+}
+SiteLayout.propTypes = {
+	title:  PropTypes.string
+}
+

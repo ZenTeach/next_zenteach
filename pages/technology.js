@@ -2,7 +2,7 @@ import SiteLayout from '../components/SiteLayout'
 
 const Technology = () => {
 	return (
-		<SiteLayout>
+		<SiteLayout title="ZenTeach - Technology">
 			<div className="md:h-full lg:h-full lg:mb-4 flex flex-col md:flex-row space-between max-w-4xl mx-auto mt-8 pt-8">
 				<div className="md:w-1/2 w-2/5">
 					<img
