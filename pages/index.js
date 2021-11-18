@@ -32,7 +32,7 @@ class Index extends React.Component {
 
 	render () {
 		return(
-			<SiteLayout>
+			<SiteLayout title="ZenTeach">
 				<div className="h-screen mt-8 sm:mt-0 sm:py-12 max-w-xl mx-auto px-8">
 				<h1 className="text-center">
 					<span className="block text-2xl md:text-5xl font-bold leading-none">
