@@ -34,6 +34,6 @@ export default class Feature extends React.Component {
 Feature.propTypes = {
 	tagline: PropTypes.string,
 	headline: PropTypes.string,
-	images: PropTypes.string.isRequired,
+	image: PropTypes.string.isRequired,
 	children: PropTypes.array.isRequired
 };
