@@ -9,20 +9,21 @@ import { fab,
 				faMedium } from '@fortawesome/free-brands-svg-icons'
 import { fas, faCheckCircle, faTimesCircle, faSpinner } from '@fortawesome/free-solid-svg-icons'
 import '@fortawesome/fontawesome-svg-core/styles.css'
-import { useEffect } from 'react'
-import { useRouter } from 'next/router'
+import { logWebVitals } from '../utils/analytics'
 
 config.autoAddCss = false
 library.add(fas, fab, faLinkedin, faTwitter, faGithub, faMedium, faTimesCircle, faSpinner, faCheckCircle)
 
 export function reportWebVitals({ id, name, label, value }) {
-  window.gtag('event', name, {
-    event_category:
-      label === 'web-vital' ? 'Web Vitals' : 'Next.js custom metric',
-    value: Math.round(name === 'CLS' ? value * 1000 : value),
-    event_label: id,
-    non_interaction: true,
-  })
+	let metric = {
+		action: name,
+		category:
+			label === 'web-vital' ? 'Web Vitals' : 'Next.js custom metric',
+		value: Math.round(name === 'CLS' ? value * 1000 : value),
+		label: id,
+		non_interaction: true,
+	}
+	logWebVitals(metric)
 }
 class MyApp extends App {
   render() {
