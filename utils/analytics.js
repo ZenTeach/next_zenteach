@@ -17,17 +17,6 @@ export const logEvent = (category = '', action = '') => {
   }
 }
 
-export const logWebVitals = (metric) => {
-	ReactGA.event({
-		category: metric.category,
-		action: metric.name,
-		value: metric.value,
-		label: metric.label,
-		nonInteraction: metric.non_interaction
- 	})
-}
-
-
 export const logException = (description = '', fatal = false) => {
   if (description) {
     ReactGA.exception({ description, fatal })
