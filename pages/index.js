@@ -33,22 +33,32 @@ class Index extends React.Component {
 	render () {
 		return(
 			<SiteLayout title="ZenTeach">
-				<div className="h-screen mt-8 sm:mt-0 sm:py-12 max-w-xl mx-auto px-8">
-				<h1 className="text-center">
-					<span className="block text-2xl md:text-5xl font-bold leading-none">
-								A Revolutionary Formative Assessment Tool. For Teachers.
-					</span>
-				</h1>
-				<div className="mt-12 text-center">
-					<a type="submit"
-						className="bg-black text-white rounded-sm h-100 text-sm md:text-lg p-2"
-						href="mailto:info@zenteach.co.uk?subject=Request%20access%20to%20portal">
-						Request Demo
-					</a>
-					<div className="hidden" id="demo_request_success">
-						<p className="text-xs" id="demo_request_success_message">Request submitted!</p>
+				<div className="h-screen w-full mt-8 sm:mt-0 sm:py-12 px-8 flex lg:flex-row flex-col">
+					<div className="lg:w-2/3 w-full lg:order-1 order-2 lg:h-full h-2/3">
+						<iframe
+							className="w-full h-4/5 mx-auto aspect-16/9 lg:aspect-video"
+							src="https://www.youtube.com/embed/ezY2IoPzXo8"
+							title="ZenTeach release video"
+							frameBorder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
 					</div>
-				</div>
+					<div className="mt-8 lg:w-1/3 w-full lg:order-2 order-1 p-3 flex flex-col lg:justify-start">
+						<h1 className="text-center mb-4 md:mx-auto md:w-full">
+							<span className="block text-2xl md:text-5xl font-bold leading-none">
+										A Revolutionary Formative Assessment Tool. For Teachers.
+							</span>
+						</h1>
+						<span className='flex place-content-center'>
+							<a type="submit"
+								className="bg-black text-white rounded-sm h-100 text-sm md:text-lg p-2"
+								href="mailto:info@zenteach.co.uk?subject=Request%20access%20to%20portal">
+								Request Demo
+							</a>
+							<div className="hidden" id="demo_request_success">
+								<p className="text-xs" id="demo_request_success_message">Request submitted!</p>
+							</div>
+						</span>
+					</div>
 				</div>
 					<Feature
 						tagline="Find where students are lacking. Quickly."
