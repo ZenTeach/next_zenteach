@@ -1,10 +1,8 @@
 import SiteLayout from '../components/SiteLayout'
 import Feature from '../components/Feature'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import * as React from 'react'
 import Subscribe from '../components/Subscribe'
-
-const hookURL = process.env.airtable_hook
+import RequestDemo from '../components/RequestDemo'
 class Index extends React.Component {
 	async sendUserWebhook() {
 		let email = document.querySelector('input#requester_email').value
@@ -49,14 +47,15 @@ class Index extends React.Component {
 							</span>
 						</h1>
 						<span className='flex place-content-center'>
-							<a type="submit"
+							{/* <a type="submit"
 								className="bg-black text-white rounded-sm h-100 text-sm md:text-lg p-2"
 								href="mailto:info@zenteach.co.uk?subject=Request%20access%20to%20portal">
 								Request Demo
 							</a>
 							<div className="hidden" id="demo_request_success">
 								<p className="text-xs" id="demo_request_success_message">Request submitted!</p>
-							</div>
+							</div> */}
+							<RequestDemo />
 						</span>
 					</div>
 				</div>
