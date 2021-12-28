@@ -18,7 +18,6 @@ const subscribe = async (req, res) => {
   }
 
 
-	console.log(data)
 	fetch(url, {
 		method: 'POST',
 		body: JSON.stringify(data),
@@ -28,7 +27,6 @@ const subscribe = async (req, res) => {
 		}
 	}).then(response => response.json())
 	.then(data => {
-		console.log(data)
 		if (data.status >= 400) {
 			return res.status(data.status).json({
 				error: `There was an error subscribing to the newsletter.`,

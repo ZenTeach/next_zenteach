@@ -30,7 +30,6 @@ const RequestDemo = forwardRef((_props, _ref) => {
 				'Content-Type': 'application/json'
 			}
 		}).then(async(response) => {
-			console.log(response)
 			if (response.status >= 400) {
 				setState('Error')
 				setRequestDemoButton('error')
