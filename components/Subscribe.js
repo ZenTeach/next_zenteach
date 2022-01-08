@@ -1,15 +1,68 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useState, forwardRef } from 'react'
+import React, { useState, forwardRef, useRef, useEffect } from 'react'
+import HCaptcha from '@hcaptcha/react-hcaptcha'
 
 const Subscribe = forwardRef((_props, _ref) => {
 	const [subscribeButton, setSubscribeButton] = useState('')
 	const [email, setEmail] = useState('')
 	const [state, setState] = useState('idle')
 	const [errorMsg, setErrorMsg] = useState(null)
+	const [_token, setToken] = useState(null);
+	const captchaRef = useRef(null);
 
-	const subscribe = async (e) => {
-	  e.preventDefault()
+	const hcaptcha_sitekey = process.env.NEXT_PUBLIC_HCAPTCHA_SITEKEY
 
+	useEffect(() => {
+		if (email.length > 3) {
+			setTimeout(function () {
+				document.querySelector('div#hcaptcha-container').classList.remove('invisible')
+			}, 1000)
+		}
+		else {
+			document.querySelector('div#hcaptcha-container').classList.add('invisible')
+		}
+	})
+
+	const onSubmit = () => {
+		captchaRef.current.execute();
+	};
+
+	const onVerify = async (token, eKey) => {
+		if (!token) {
+		  return setErrorMsg('Captcha validation required')
+		}
+
+		try {
+		  const result = await fetch(`/api/hcaptcha_verify`,
+			{
+				method: 'POST',
+				cache: 'no-cache',
+				body: JSON.stringify({ token }),
+				referrerPolicy: 'no-referrer',
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+
+		  if (result) {
+			await subscribe()
+		  }
+		} catch (error) {
+			// TODO: Error handling
+		}
+	  }
+
+	const onError = (err) => {
+		setToken(null)
+		setState('Error')
+		setErrorMsg('There was an error processing your request.', err)
+		setTimeout(function() {
+			setState('')
+			setErrorMsg('')
+			captchaRef.current.resetCaptcha()
+		}, 5000)
+	}
+	const subscribe = async () => {
 	  const email_regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 	  if(email === '') {
 		  setState('Error')
@@ -54,6 +107,8 @@ const Subscribe = forwardRef((_props, _ref) => {
 			setSubscribeButton('')
 			setErrorMsg('')
 			setEmail('')
+			captchaRef.current.resetCaptcha()
+			captchaRef.current.classList.toggle('invisible')
 		}, 5000)
 	}
 
@@ -64,7 +119,7 @@ const Subscribe = forwardRef((_props, _ref) => {
 		  Get to notified as we publish articles on our progress and more
 		  sent to your inbox. We&apos;ll send you an email once a month, no spam.
 		</p>
-		<form onSubmit={subscribe} className="rounded pt-6 pb-8 mb-4">
+		<form className="rounded pt-6 pb-8 mb-4">
 		  <div className="mt-4 flex text-center">
 			<div className="form-input">
 			  <input
@@ -83,7 +138,7 @@ const Subscribe = forwardRef((_props, _ref) => {
 				disabled={state === 'Loading'}
 				type="submit"
 				className="bg-black text-white rounded-sm h-auto text-sm p-2 md:p-3"
-				onClick={subscribe}
+				onClick={onSubmit}
 			  >
 				{ state === 'Loading' && (
 					<span className="">
@@ -112,6 +167,14 @@ const Subscribe = forwardRef((_props, _ref) => {
 		  {state === 'Success' && (
 			<p className="text-sm md:text-l">Awesome, you&apos;ve been subscribed!</p>
 		  )}
+		  <div className="invisible form-input mt-3" id="hcaptcha-container">
+		  	<HCaptcha
+				sitekey={ hcaptcha_sitekey }
+				onVerify={ onVerify }
+				onError={ onError }
+        		onExpire={ () => setToken(null) }
+				ref={ captchaRef } />
+		  </div>
 		</form>
 	  </div>
 	)
