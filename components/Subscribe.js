@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState, forwardRef, useRef, useEffect } from 'react'
-import HCaptcha from '@hcaptcha/react-hcaptcha'
+import Captcha from './Captcha'
 
 const Subscribe = forwardRef((_props, _ref) => {
 	const [subscribeButton, setSubscribeButton] = useState('')
@@ -10,13 +10,11 @@ const Subscribe = forwardRef((_props, _ref) => {
 	const [_token, setToken] = useState(null);
 	const captchaRef = useRef(null);
 
-	const hcaptcha_sitekey = process.env.NEXT_PUBLIC_HCAPTCHA_SITEKEY
-
 	useEffect(() => {
 		if (email.length > 3) {
 			setTimeout(function () {
 				document.querySelector('div#hcaptcha-container').classList.remove('invisible')
-			}, 1000)
+			}, 100)
 		}
 		else {
 			document.querySelector('div#hcaptcha-container').classList.add('invisible')
@@ -26,31 +24,6 @@ const Subscribe = forwardRef((_props, _ref) => {
 	const onSubmit = () => {
 		captchaRef.current.execute();
 	};
-
-	const onVerify = async (token, eKey) => {
-		if (!token) {
-		  return setErrorMsg('Captcha validation required')
-		}
-
-		try {
-		  const result = await fetch(`/api/hcaptcha_verify`,
-			{
-				method: 'POST',
-				cache: 'no-cache',
-				body: JSON.stringify({ token }),
-				referrerPolicy: 'no-referrer',
-				headers: {
-					'Content-Type': 'application/json'
-				}
-			})
-
-		  if (result) {
-			await subscribe()
-		  }
-		} catch (error) {
-			// TODO: Error handling
-		}
-	  }
 
 	const onError = (err) => {
 		setToken(null)
@@ -108,7 +81,6 @@ const Subscribe = forwardRef((_props, _ref) => {
 			setErrorMsg('')
 			setEmail('')
 			captchaRef.current.resetCaptcha()
-			captchaRef.current.classList.toggle('invisible')
 		}, 5000)
 	}
 
@@ -168,12 +140,10 @@ const Subscribe = forwardRef((_props, _ref) => {
 			<p className="text-sm md:text-l">Awesome, you&apos;ve been subscribed!</p>
 		  )}
 		  <div className="invisible form-input mt-3" id="hcaptcha-container">
-		  	<HCaptcha
-				sitekey={ hcaptcha_sitekey }
-				onVerify={ onVerify }
-				onError={ onError }
-        		onExpire={ () => setToken(null) }
-				ref={ captchaRef } />
+		  	<Captcha
+				postVerifyCallback={ subscribe }
+				errorCallback={ onError }
+				asRef={ captchaRef } />
 		  </div>
 		</form>
 	  </div>
