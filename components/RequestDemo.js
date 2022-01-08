@@ -1,14 +1,42 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useState, forwardRef } from 'react'
+import React, { useState, useRef, useEffect, forwardRef } from 'react'
+import Captcha from './Captcha'
 
 const RequestDemo = forwardRef((_props, _ref) => {
 	const [requestDemoButton, setRequestDemoButton] = useState('')
 	const [requesterEmail, setrequesterEmail] = useState('')
 	const [state, setState] = useState('idle')
 	const [requestDemoErrorMsg, setRequestDemoErrorMsg] = useState(null)
+	const [_token, setToken] = useState(null);
+	const captchaRef = useRef(null);
 
-	const requestDemo = async (e) => {
-	  e.preventDefault()
+	useEffect(() => {
+		if (requesterEmail.length > 3) {
+			setTimeout(function () {
+				document.querySelector('div#request-demo-hcaptcha-container').classList.remove('invisible')
+			}, 100)
+		}
+		else {
+			document.querySelector('div#request-demo-hcaptcha-container').classList.add('invisible')
+		}
+	})
+
+	const onSubmit = () => {
+		captchaRef.current.execute();
+	};
+
+	const onError = (err) => {
+		setToken(null)
+		setState('Error')
+		setErrorMsg('There was an error processing your request.', err)
+		setTimeout(function() {
+			setState('')
+			setErrorMsg('')
+			captchaRef.current.resetCaptcha()
+		}, 5000)
+	}
+
+	const requestDemo = async () => {
 
 	  const email_regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 	  if(requesterEmail === '') {
@@ -54,12 +82,13 @@ const RequestDemo = forwardRef((_props, _ref) => {
 			setRequestDemoButton('')
 			setRequestDemoErrorMsg('')
 			setrequesterEmail('')
+			captchaRef.current.resetCaptcha()
 		}, 5000)
 	}
 
 	return (
 	  <div className="h-full bg-opacity-25 border-gray-400 flex flex-col justify-center">
-		<form onSubmit={requestDemo} className="rounded">
+		<form className="rounded">
 		  <div className="mt-4 flex text-center">
 			<div className="form-input">
 			  <input
@@ -78,7 +107,7 @@ const RequestDemo = forwardRef((_props, _ref) => {
 				disabled={state === 'Loading'}
 				type="submit"
 				className="bg-black text-white rounded-sm h-auto text-sm p-1 md:p-3"
-				onClick={requestDemo}
+				onClick={onSubmit}
 			  >
 				{ state === 'Loading' && (
 					<span className="">
@@ -107,6 +136,12 @@ const RequestDemo = forwardRef((_props, _ref) => {
 		  {state === 'Success' && (
 			<p className="text-sm md:text-l">Great!, we&apos;ll reach out to you soon!</p>
 		  )}
+		  <div className="invisible form-input mt-3" id="request-demo-hcaptcha-container">
+		  	<Captcha
+				postVerifyCallback={ requestDemo }
+				errorCallback={ onError }
+				asRef={ captchaRef } />
+		  </div>
 		</form>
 	  </div>
 	)

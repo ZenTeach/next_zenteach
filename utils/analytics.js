@@ -1,6 +1,6 @@
 import ReactGA from 'react-ga'
 
-const ANALYTICS_ID = process.env.GA_ANALYTICS
+const ANALYTICS_ID = process.env.NEXT_PUBLIC_GA_ANALYTICS
 
 export const initGA = () => {
   ReactGA.initialize(ANALYTICS_ID)
