@@ -1,3 +1,4 @@
+import { withSentry } from '@sentry/nextjs'
 
 const request_demo = async (req, res) => {
 	const { email } = req.body
@@ -34,5 +35,5 @@ const request_demo = async (req, res) => {
 	  })
   }
 
-  export default request_demo
+  export default withSentry(request_demo)
 

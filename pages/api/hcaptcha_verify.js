@@ -1,4 +1,5 @@
-const { verify } = require('hcaptcha')
+import { verify } from 'hcaptcha'
+import { withSentry } from '@sentry/nextjs'
 
 const hcaptcha_verify = async (req, res) => {
 	const { token } = req.body
@@ -18,5 +19,5 @@ const hcaptcha_verify = async (req, res) => {
 	  })
   }
 
-  export default hcaptcha_verify
+  export default withSentry(hcaptcha_verify)
 
