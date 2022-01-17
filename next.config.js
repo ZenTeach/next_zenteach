@@ -1,4 +1,4 @@
-import { withSentryConfig } from "@sentry/nextjs"
+const { withSentryConfig } = require('@sentry/nextjs')
 
 const siteConfig = {
 	env: {
