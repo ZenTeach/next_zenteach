@@ -30,7 +30,10 @@ class Index extends React.Component {
 
 	render () {
 		return(
-			<SiteLayout title="ZenTeach">
+			<SiteLayout
+				title="ZenTeach"
+				description="A Revolutionary Formative Assessment Tool for Teachers."
+				>
 				<div className="h-screen w-full mt-8 sm:mt-0 sm:py-12 px-8 flex lg:flex-row flex-col">
 					<div className="lg:w-2/3 w-full lg:order-1 order-2 lg:h-full h-2/3">
 						<iframe
@@ -289,3 +292,16 @@ class Index extends React.Component {
 }
 
 export default Index
+
+export async function getServerSideProps({ req, res }) {
+	res.setHeader(
+	  'Cache-Control',
+	  'public, s-maxage=10, stale-while-revalidate=59'
+	)
+
+	return {
+	  props: {
+		time: new Date().toISOString(),
+	  },
+	}
+  }
