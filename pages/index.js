@@ -1,9 +1,19 @@
 import SiteLayout from '../components/SiteLayout'
 import Feature from '../components/Feature'
-import * as React from 'react'
 import Subscribe from '../components/Subscribe'
 import RequestDemo from '../components/RequestDemo'
+import Link from 'next/link'
+import React, { useState} from 'react'
+
+
 class Index extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            banner: true
+        }
+    }
+
 	async sendUserWebhook() {
 		let email = document.querySelector('input#requester_email').value
 		let data = {
@@ -28,13 +38,64 @@ class Index extends React.Component {
 
 	}
 
+
 	render () {
 		return(
 			<SiteLayout
 				title="ZenTeach"
 				description="A Revolutionary Formative Assessment Tool for Teachers."
 				>
+              {
+                  this.state.banner &&
+              <div className="bg-red-500 ">
+						<div className="max-w-l mx-auto py-3 px-3 sm:px-6 lg:px-8">
+							<div className="flex items-center justify-between flex-wrap">
+								<div className="w-0 flex-1 flex items-center">
+									<span className="flex p-2 rounded-lg bg-red-800">
+										<svg className="h-6 w-6 text-white"
+                                             xmlns="http://www.w3.org/2000/svg"
+                                             fill="none"
+                                             viewBox="0 0 24 24"
+                                             strokeWidth="2"
+                                             stroke="currentColor"
+                                             aria-hidden="true">
+											<path
+                                              strokeLinecap="round"
+                                              strokeLinejoin="round"
+                                              d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+										</svg>
+									</span>
+									<p className="ml-3 font-medium text-white">
+										<span className="md:hidden"> Find our teaching resources on TES! </span>
+										<span className="hidden md:inline"> Big news! Find our teaching resources on TES! </span>
+									</p>
+								</div>
+								<div className="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
+			                     <a
+                                      href="https://www.tes.com/resources/search/?authorId=25703873"
+                                      className="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-red-600 bg-white hover:bg-red-50"
+                                   	target="_blank"
+                                   	rel="noreferrer">
+                                   	Learn more </a>
+								</div>
+							<div className="order-2 flex-shrink-0 sm:order-3 sm:ml-3">
+			<button
+              type="button"
+              className="-mr-1 flex p-2 rounded-md hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2"
+              onClick={()=> this.setState({banner: false})}
+            >
+			<span className="sr-only">Dismiss</span>
+				<svg className="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" aria-hidden="true">
+			<path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+            </button>
+            </div>
+            </div>
+            </div>
+            </div>
+           }
 				<div className="h-screen w-full mt-8 sm:mt-0 sm:py-12 px-8 flex lg:flex-row flex-col">
+            <div className="flex lg:flex-row flex-col">
 					<div className="lg:w-2/3 w-full lg:order-1 order-2 lg:h-full h-2/3">
 						<iframe
 							className="w-full h-4/5 mx-auto aspect-16/9 lg:aspect-video"
@@ -50,17 +111,11 @@ class Index extends React.Component {
 							</span>
 						</h1>
 						<span className='flex place-content-center'>
-							{/* <a type="submit"
-								className="bg-black text-white rounded-sm h-100 text-sm md:text-lg p-2"
-								href="mailto:info@zenteach.co.uk?subject=Request%20access%20to%20portal">
-								Request Demo
-							</a>
-							<div className="hidden" id="demo_request_success">
-								<p className="text-xs" id="demo_request_success_message">Request submitted!</p>
-							</div> */}
 							<RequestDemo />
 						</span>
-					</div>
+
+            </div>
+            </div>
 				</div>
 					<Feature
 						tagline="Find where students are lacking. Quickly."

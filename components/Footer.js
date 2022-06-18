@@ -75,7 +75,7 @@ class Footer extends React.Component {
 							info@zenteach.co.uk
 						</Link>
 					</div>
-				</div>
+                  				</div>
 				<div className="md:w-1/2 w-1/2 h-auto justify-content-center md:mx-8 md:px-8 flex-shrink">
 					<div className="font-bold text-md md:text-xl mb-2">Company</div>
 					<ul className="list-reset leading-normal">
