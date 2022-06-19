@@ -21,6 +21,7 @@
     "@sentry/nextjs": "^6.16.1",
     "autoprefixer": "^10.0",
     "compression": "^1.7.4",
+    "esbuild": "^0.14.46",
     "express": "^4.17.1",
     "hcaptcha": "^0.1.1",
     "helmet": "^4.6.0",
