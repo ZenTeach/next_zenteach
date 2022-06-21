@@ -37,7 +37,8 @@ const siteConfig = {
 	},
 	webpack: function (config, { isServer }) {
 		if (!isServer) {
-            config.resolve.fallback = {
+            config.resolve.alias = {
+                ...config.resolve.alias,
                 webpack: false
             }
 		}
