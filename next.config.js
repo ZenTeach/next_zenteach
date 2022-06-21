@@ -1,4 +1,4 @@
-const { withSentryConfig } = require('@sentry/nextjs')
+// const { withSentryConfig } = require('@sentry/nextjs')
 
 const siteConfig = {
 	env: {
@@ -48,6 +48,6 @@ const siteConfig = {
 	generateBuildId: () => 'build'
 
 }
-const sentryWebpackPluginOptions = {}
-
-module.exports = withSentryConfig(siteConfig, sentryWebpackPluginOptions)
+// const sentryWebpackPluginOptions = {}
+module.exports = siteConfig
+// module.exports = withSentryConfig(siteConfig, sentryWebpackPluginOptions)
