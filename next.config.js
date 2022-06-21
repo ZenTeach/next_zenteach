@@ -36,11 +36,7 @@ const siteConfig = {
 		  ]
 	},
 	webpack: function (config, { isServer }) {
-		if (!isServer) {
-            config.resolve.alias = {
-                ...config.resolve.alias,
-                webpack: false
-            }
+		if (isServer) {
 		}
 		config.module.rules.push({
 			test: /\.md$/,
