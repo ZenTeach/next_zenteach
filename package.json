@@ -19,6 +19,7 @@
     "@hcaptcha/react-hcaptcha": "^0.3.10",
     "@mailchimp/mailchimp_marketing": "^3.0.51",
     "@sentry/nextjs": "^6.16.1",
+    "@swc/core": "^1.2.204",
     "autoprefixer": "^10.0",
     "compression": "^1.7.4",
     "esbuild": "^0.14.46",
