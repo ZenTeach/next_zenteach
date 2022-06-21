@@ -36,7 +36,10 @@ const siteConfig = {
 		  ]
 	},
 	webpack: function (config, { isServer }) {
-		if (isServer) {
+		if (!isServer) {
+            config.resolve.fallback = {
+                webpack: false
+            }
 		}
 		config.module.rules.push({
 			test: /\.md$/,
