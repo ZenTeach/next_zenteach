@@ -1,3 +1,5 @@
+import { withSentry } from '@sentry/nextjs'
+
 const subscribe = async (req, res) => {
   const { email } = req.body
 
@@ -39,5 +41,5 @@ const subscribe = async (req, res) => {
 	})
 }
 
-export default subscribe
+export default withSentry(subscribe)
 
