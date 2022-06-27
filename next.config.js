@@ -3,6 +3,7 @@ const siteConfig = {
 		apiKey: '',
 	},
 	target: 'serverless',
+	webpack5: false,
 	async headers() {
 		return [
 			{
