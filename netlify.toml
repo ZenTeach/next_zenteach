@@ -1,0 +1,10 @@
+[functions]
+
+  # Flags "package-1" as an external node module for all functions.
+  external_node_modules = ["@sentry/nextjs",
+                            "hcaptcha",
+                            "@mailchimp/mailchimp_marketing",
+                            "@hcaptcha/react-hcaptcha"]
+
+  # Includes all Markdown files inside the "files/" directory.
+  directory = "pages/api"

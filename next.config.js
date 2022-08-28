@@ -1,6 +1,8 @@
 const { withSentryConfig } = require('@sentry/nextjs')
 
 const siteConfig = {
+    reactStrictMode: true,
+    swcMinify: true,
 	env: {
 		apiKey: '',
 	},
