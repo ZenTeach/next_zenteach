@@ -1,9 +1,22 @@
 const { withSentryConfig } = require('@sentry/nextjs')
+const SentryCliPlugin = require('@sentry/webpack-plugin');
 
 const siteConfig = {
+    reactStrictMode: true,
+    swcMinify: true,
 	env: {
 		apiKey: '',
 	},
+	plugins: [
+		new SentryCliPlugin({
+		  release: function(hash) {
+			return hash.slice(0, 5);
+		  },
+		  include: '.',
+		  ignoreFile: '',
+		  ignore: ['node_modules', 'webpack.config.js', 'pages/api']
+		})
+	  ],
 	target: 'serverless',
 	async headers() {
 		return [

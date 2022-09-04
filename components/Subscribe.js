@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState, forwardRef, useRef, useEffect } from 'react'
 import Captcha from './Captcha'
+// import '../pages/initSupabase'
 
 const Subscribe = forwardRef((_props, _ref) => {
 	const [subscribeButton, setSubscribeButton] = useState('')
@@ -35,6 +36,7 @@ const Subscribe = forwardRef((_props, _ref) => {
 			captchaRef.current.resetCaptcha()
 		}, 5000)
 	}
+
 	const subscribe = async () => {
 	  const email_regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 	  if(email === '') {
@@ -45,44 +47,63 @@ const Subscribe = forwardRef((_props, _ref) => {
 		setErrorMsg('Please enter your valid email.')
 	  }
 	  else {
-
 	  	setState('Loading')
-		fetch('/api/subscribe', {
-			method: 'POST',
-			cache: 'no-cache',
-			body: JSON.stringify({ email }),
-			referrerPolicy: 'no-referrer',
-			headers: {
-				'Content-Type': 'application/json'
-			}
-		}).then(async(response) => {
-			if (response.status >= 400) {
-				setState('Error')
-				setSubscribeButton('error')
-				let data = await response.json()
-				setErrorMsg(data.message || 'We are facing some technical difficulties adding your email to our subscribers list. Please try again in few moments.')
-			}
-			else {
-				setState('Success')
-				setSubscribeButton('success')
-				setEmail('')
-			}
-		})
-		.catch(response => {
+        const request = await supabase.function.invoke('subscribe', {
+			body: JSON.stringify(data)
+        })
+        if (response.status >= 400) {
 			setState('Error')
 			setSubscribeButton('error')
-			setErrorMsg(e.response.data)
-		})
+			let data = await response.json()
+			setErrorMsg(data.message || 'We are facing some technical difficulties adding your email to our subscribers list. Please try again in few moments.')
+		}
+        else if (response.status >= 500){
+			setState('Success')
+			setSubscribeButton('success')
+			setEmail('')
+        }
+		else {
+			setState('Success')
+			setSubscribeButton('success')
+			setEmail('')
+		}
+		// fetch('/api/subscribe', {
+		// 	method: 'POST',
+		// 	cache: 'no-cache',
+		// 	body: JSON.stringify({ email }),
+		// 	referrerPolicy: 'no-referrer',
+		// 	headers: {
+		// 		'Content-Type': 'application/json'
+		// 	}
+		// }).then(async(response) => {
+		// 	if (response.status >= 400) {
+		// 		setState('Error')
+		// 		setSubscribeButton('error')
+		// 		let data = await response.json()
+		// 		setErrorMsg(data.message || 'We are facing some technical difficulties adding your email to our subscribers list. Please try again in few moments.')
+		// 	}
+		// 	else {
+		// 		setState('Success')
+		// 		setSubscribeButton('success')
+		// 		setEmail('')
+		// 	}
+		// })
+		// .catch(response => {
+		// 	setState('Error')
+		// 	setSubscribeButton('error')
+		// 	setErrorMsg(e.response.data)
+		  // })
 	  }
 
-		setTimeout(function() {
-			setState('')
-			setSubscribeButton('')
-			setErrorMsg('')
-			setEmail('')
-			captchaRef.current.resetCaptcha()
-		}, 5000)
-	}
+
+	  setTimeout(function() {
+		  setState('')
+		  setSubscribeButton('')
+		  setErrorMsg('')
+		  setEmail('')
+		  captchaRef.current.resetCaptcha()
+	  }, 5000)
+    }
 
 	return (
 	  <div className="h-full bg-red-200 bg-opacity-25 border-gray-400 flex flex-col justify-center p-8 m-8">
@@ -148,7 +169,7 @@ const Subscribe = forwardRef((_props, _ref) => {
 		</form>
 	  </div>
 	)
-  })
+  });
 
 Subscribe.displayName = "Newsletter-subscribe"
 export default Subscribe

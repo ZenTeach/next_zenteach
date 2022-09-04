@@ -3,28 +3,41 @@ import Feature from '../components/Feature'
 import * as React from 'react'
 import Subscribe from '../components/Subscribe'
 import RequestDemo from '../components/RequestDemo'
+// import './initSupabase.js'
 class Index extends React.Component {
 	async sendUserWebhook() {
 		let email = document.querySelector('input#requester_email').value
 		let data = {
 			'email': email,
 		}
-
-		fetch('/api/demo_request', {
-			method: 'POST',
+        const request = await supabase.function.invoke('demo_request', {
 			body: JSON.stringify(data)
-		}).then(response => {
-			if (response.status === 200) {
+        })
+        if (response.status === 200) {
+			document.querySelector('#demo_request_success').classList.toggle('hidden')
+			setInterval(() => {
 				document.querySelector('#demo_request_success').classList.toggle('hidden')
-				setInterval(() => {
-					document.querySelector('#demo_request_success').classList.toggle('hidden')
-				}, 2500)
-				document.querySelector('input#requester_email').value="Email..."
-			}
-			else {
-				// report the error
-			}
-		})
+			}, 2500)
+			document.querySelector('input#requester_email').value="Email..."
+		}
+		else {
+			// report the error
+		}
+		// fetch('/api/demo_request', {
+		// 	method: 'POST',
+		// 	body: JSON.stringify(data)
+		// }).then(response => {
+		// 	if (response.status === 200) {
+		// 		document.querySelector('#demo_request_success').classList.toggle('hidden')
+		// 		setInterval(() => {
+		// 			document.querySelector('#demo_request_success').classList.toggle('hidden')
+		// 		}, 2500)
+		// 		document.querySelector('input#requester_email').value="Email..."
+		// 	}
+		// 	else {
+		// 		// report the error
+		// 	}
+		// })
 
 	}
 
