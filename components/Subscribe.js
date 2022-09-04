@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState, forwardRef, useRef, useEffect } from 'react'
 import Captcha from './Captcha'
-import '../pages/initSupabase'
+// import '../pages/initSupabase'
 
 const Subscribe = forwardRef((_props, _ref) => {
 	const [subscribeButton, setSubscribeButton] = useState('')

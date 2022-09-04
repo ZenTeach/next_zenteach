@@ -14,7 +14,7 @@ const siteConfig = {
 		  },
 		  include: '.',
 		  ignoreFile: '',
-		  ignore: ['node_modules', 'webpack.config.js']
+		  ignore: ['node_modules', 'webpack.config.js', 'pages/api']
 		})
 	  ],
 	target: 'serverless',

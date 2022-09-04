@@ -3,7 +3,7 @@ import Feature from '../components/Feature'
 import * as React from 'react'
 import Subscribe from '../components/Subscribe'
 import RequestDemo from '../components/RequestDemo'
-import './initSupabase.js'
+// import './initSupabase.js'
 class Index extends React.Component {
 	async sendUserWebhook() {
 		let email = document.querySelector('input#requester_email').value
