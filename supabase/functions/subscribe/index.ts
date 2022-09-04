@@ -1,8 +1,12 @@
-import { serve } from "https://deno.land/std@0.131.0/http/server.ts";
-import { Status } from "https://deno.land/std@0.131.0/http/http_status.ts";
-import { withSentry } from 'https://esm.sh/@sentry/nextjs?target=deno&deno-std=0.131.0";
+import { serve } from "https://deno.land/std@0.154.0/http/server.ts"
+import { Status } from "https://deno.land/std@0.154.0/http/http_status.ts"
+import * as Sentry from 'https://esm.sh/@sentry/node?target=deno&deno-std=0.154.0'
+// import * as Sentry from 'https://deno.land/x/sentry'
 
-serve(withSentry(async (req, res) => {
+Sentry.init({
+  dsn: Deno.env.get('NEXT_PUBLIC_SENTRY_DSN')
+})
+serve(async (req, res) => {
   const { email } = await req.json();
 
   if (!email || !email.length) {
@@ -19,21 +23,22 @@ serve(withSentry(async (req, res) => {
 
   const url = `https://${API_SERVER}.api.mailchimp.com/3.0/lists/${AUDIENCE_ID}/members?skip_merge_validation=true`
 
-  const data = {
+  const submit_data = {
     email_address: email,
     status: 'subscribed'
   }
 
   let response  = await fetch(url, {
       method: 'POST',
-      body: JSON.stringify(data),
+      body: JSON.stringify(submit_data),
       headers: {
           'Content-Type': 'application/json',
           Authorization: `api_key ${API_KEY}`
       }
   })
-  const data = response.get_json().data
-  if (data.status >= Status.BadRequest && data.status < Status.InternalServerError) {
+  let data = await response.json()
+  data = data.data
+  if (response.status >= Status.BadRequest && response.status < Status.InternalServerError) {
     return new Response(JSON.stringify({
       error: `There was an error subscribing to the newsletter.`,
       message: `${data.title}: ${data.detail}`
@@ -42,9 +47,10 @@ serve(withSentry(async (req, res) => {
         headers: { "Content-Type": "application/json" },
     });
   }
-  else if (data.status >= Status.InternalServerError){
+  else if (response.status >= Status.InternalServerError){
+    Sentry.captureException(response.json());
     return new Response(JSON.stringify({
-        error: response.get_error()
+        error: response.json()
       }), {
           status: Status.InternalServerError,
           headers: { "Content-Type": "application/json" },
@@ -58,4 +64,4 @@ serve(withSentry(async (req, res) => {
         headers: { "Content-Type": "application/json" },
     });
   }
-}));
+});
