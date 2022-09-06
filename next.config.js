@@ -61,6 +61,5 @@ const siteConfig = {
 	generateBuildId: () => 'build'
 
 }
-const sentryWebpackPluginOptions = {}
 
-module.exports = withSentryConfig(siteConfig, sentryWebpackPluginOptions)
+module.exports = siteConfig
