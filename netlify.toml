@@ -5,4 +5,4 @@
     sentryOrg = "zenteach"
     sentryProject = "landing"
     deployPreviews = false
-    sentryRepository = "https://github.com/ZenTeach/next_zenteach.git"
+    sentryRepository = "https://github.com/ZenTeach/next_zenteach"
