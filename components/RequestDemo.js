@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState, useRef, useEffect, forwardRef } from 'react'
 import Captcha from './Captcha'
+import '../utils/initSupabase'
 
 const RequestDemo = forwardRef((_props, _ref) => {
 	const [requestDemoButton, setRequestDemoButton] = useState('')
@@ -37,7 +38,6 @@ const RequestDemo = forwardRef((_props, _ref) => {
 	}
 
 	const requestDemo = async () => {
-
 	  const email_regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 	  if(requesterEmail === '') {
 		  setState('Error')
@@ -47,43 +47,29 @@ const RequestDemo = forwardRef((_props, _ref) => {
 		setRequestDemoErrorMsg('Please enter your valid email.')
 	  }
 	  else {
-
-	  	setState('Loading')
-		fetch('/api/request_demo', {
-			method: 'POST',
-			cache: 'no-cache',
+		setState('Loading')
+		const response = await supabase.function.invoke('request_demo', {
 			body: JSON.stringify({ email: requesterEmail }),
-			referrerPolicy: 'no-referrer',
-			headers: {
-				'Content-Type': 'application/json'
-			}
-		}).then(async(response) => {
-			if (response.status >= 400) {
-				setState('Error')
-				setRequestDemoButton('error')
-				let data = await response.json()
-				setRequestDemoErrorMsg(data.message || 'We are facing some technical difficulties processing your email. Please try again in few moments.')
-			}
-			else {
-				setState('Success')
-				setRequestDemoButton('success')
-				setrequesterEmail('')
-			}
 		})
-		.catch(response => {
-			setState('Error')
-			setRequestDemoButton('error')
-			setRequestDemoErrorMsg(e.response.data)
-		})
+		if (response.status >= 400) {
+		  setState('Error')
+		  setRequestDemoButton('error')
+		  let data = await response.json()
+		  setRequestDemoErrorMsg(data.error || 'We are facing some technical difficulties processing your email. Please try again in few moments.')
+		}
+		else {
+			 setState('Success')
+			 setRequestDemoButton('success')
+			 setrequesterEmail('')
+		}
 	  }
-
-		setTimeout(function() {
-			setState('')
-			setRequestDemoButton('')
-			setRequestDemoErrorMsg('')
-			setrequesterEmail('')
-			captchaRef.current.resetCaptcha()
-		}, 5000)
+	  setTimeout(function() {
+		setState('')
+		setRequestDemoButton('')
+		setRequestDemoErrorMsg('')
+		setrequesterEmail('')
+		captchaRef.current.resetCaptcha()
+	  }, 5000)
 	}
 
 	return (

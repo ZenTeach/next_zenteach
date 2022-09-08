@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState, forwardRef, useRef, useEffect } from 'react'
 import Captcha from './Captcha'
-// import '../pages/initSupabase'
+import '../utils/initSupabase'
 
 const Subscribe = forwardRef((_props, _ref) => {
 	const [subscribeButton, setSubscribeButton] = useState('')
@@ -42,57 +42,28 @@ const Subscribe = forwardRef((_props, _ref) => {
 	  if(email === '') {
 		  setState('Error')
 		  setErrorMsg('Please fill out the field.')
-	  } else if(email_regex.test(String(email).toLowerCase()) !== true) {
-		setState('Error')
-		setErrorMsg('Please enter your valid email.')
+	  }
+    else if(email_regex.test(String(email).toLowerCase()) !== true) {
+		  setState('Error')
+		  setErrorMsg('Please enter your valid email.')
 	  }
 	  else {
 	  	setState('Loading')
-        const request = await supabase.function.invoke('subscribe', {
-			body: JSON.stringify(data)
-        })
-        if (response.status >= 400) {
-			setState('Error')
-			setSubscribeButton('error')
-			let data = await response.json()
-			setErrorMsg(data.message || 'We are facing some technical difficulties adding your email to our subscribers list. Please try again in few moments.')
-		}
-        else if (response.status >= 500){
-			setState('Success')
-			setSubscribeButton('success')
-			setEmail('')
-        }
-		else {
-			setState('Success')
-			setSubscribeButton('success')
-			setEmail('')
-		}
-		// fetch('/api/subscribe', {
-		// 	method: 'POST',
-		// 	cache: 'no-cache',
-		// 	body: JSON.stringify({ email }),
-		// 	referrerPolicy: 'no-referrer',
-		// 	headers: {
-		// 		'Content-Type': 'application/json'
-		// 	}
-		// }).then(async(response) => {
-		// 	if (response.status >= 400) {
-		// 		setState('Error')
-		// 		setSubscribeButton('error')
-		// 		let data = await response.json()
-		// 		setErrorMsg(data.message || 'We are facing some technical difficulties adding your email to our subscribers list. Please try again in few moments.')
-		// 	}
-		// 	else {
-		// 		setState('Success')
-		// 		setSubscribeButton('success')
-		// 		setEmail('')
-		// 	}
-		// })
-		// .catch(response => {
-		// 	setState('Error')
-		// 	setSubscribeButton('error')
-		// 	setErrorMsg(e.response.data)
-		  // })
+      const response = await supabase.function.invoke('subscribe', {
+			    body: JSON.stringify(data)
+      })
+
+      if (response.status >= 400) {
+			  setState('Error')
+			  setSubscribeButton('error')
+			  let data = await response.json()
+			  setErrorMsg(data.error || 'We are facing some technical difficulties adding your email to our subscribers list. Please try again in few moments.')
+		  }
+		  else {
+			  setState('Success')
+			  setSubscribeButton('success')
+			  setEmail('')
+		  }
 	  }
 
 
