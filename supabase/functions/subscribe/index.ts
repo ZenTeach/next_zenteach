@@ -1,7 +1,6 @@
 import { serve } from "https://deno.land/std@0.154.0/http/server.ts"
 import { Status } from "https://deno.land/std@0.154.0/http/http_status.ts"
 import * as Sentry from 'https://esm.sh/@sentry/node?target=deno&deno-std=0.154.0'
-// import * as Sentry from 'https://deno.land/x/sentry'
 
 Sentry.init({
   dsn: Deno.env.get('NEXT_PUBLIC_SENTRY_DSN')
