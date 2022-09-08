@@ -2,7 +2,5 @@
   package = "@sentry/netlify-build-plugin"
 
   [plugins.inputs]
-    sentryOrg = "zenteach"
-    sentryProject = "landing"
     deployPreviews = false
-    sentryRepository = "https://github.com/ZenTeach/next_zenteach"
+    skipSetCommits = true
