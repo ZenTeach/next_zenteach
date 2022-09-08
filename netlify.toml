@@ -2,5 +2,5 @@
   package = "@sentry/netlify-build-plugin"
 
   [plugins.inputs]
-    deployPreviews = true
+    deployPreviews = false
     skipSetCommits = true
