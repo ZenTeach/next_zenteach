@@ -18,4 +18,5 @@ jobs:
           version: 1.0.0
       - run: supabase functions deploy subscribe  --project-ref $PROJECT_ID
       - run: supabase functions deploy request_demo  --project-ref $PROJECT_ID
-      - run: supabase functions deploy hcaptcha_verify  --project-ref $PROJECT_ID
+      - run: |
+          supabase functions deploy hcaptcha_verify  --project-ref $PROJECT_ID
