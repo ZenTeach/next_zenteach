@@ -3,7 +3,7 @@ import { Status } from "https://deno.land/std@0.154.0/http/http_status.ts"
 import * as Sentry from 'https://esm.sh/@sentry/node?target=deno&deno-std=0.154.0'
 
 Sentry.init({
-  dsn: Deno.env.get('NEXT_PUBLIC_SENTRY_DSN')
+  dsn: Deno.env.get('SENTRY_DSN')
 })
 serve(async (req, res) => {
 	const { email } = await req.json();
@@ -17,7 +17,7 @@ serve(async (req, res) => {
 		});
 	}
 
-	const url = Deno.env.get("AIRTABLE_API_ENDPOINT")
+	const url = Deno.env.get("AIRTABLE_API_ENDPOINT") as string
 
 	const data = {
 	  email: email,
