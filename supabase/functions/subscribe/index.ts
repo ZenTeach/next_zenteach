@@ -1,12 +1,6 @@
 import { serve } from "https://deno.land/std@0.154.0/http/server.ts"
-import { Status } from "https://deno.land/std@0.154.0/http/http_status.ts"
-import * as Sentry from 'https://esm.sh/@sentry/node?target=deno&deno-std=0.154.0'
-// import * as Sentry from 'https://deno.land/x/sentry'
 
-Sentry.init({
-  dsn: Deno.env.get('NEXT_PUBLIC_SENTRY_DSN')
-})
-serve(async (req, res) => {
+serve(async (req, _res) => {
   const { email } = await req.json();
 
   if (!email || !email.length) {
@@ -38,7 +32,7 @@ serve(async (req, res) => {
   })
   let data = await response.json()
   data = data.data
-  if (response.status >= Status.BadRequest && response.status < Status.InternalServerError) {
+  if (response.status >= 400 && response.status < 500) {
     return new Response(JSON.stringify({
       error: `There was an error subscribing to the newsletter.`,
       message: `${data.title}: ${data.detail}`
@@ -47,12 +41,11 @@ serve(async (req, res) => {
         headers: { "Content-Type": "application/json" },
     });
   }
-  else if (response.status >= Status.InternalServerError){
-    Sentry.captureException(response.json());
+  else if (response.status >= 500){
     return new Response(JSON.stringify({
         error: response.json()
       }), {
-          status: Status.InternalServerError,
+          status: 500,
           headers: { "Content-Type": "application/json" },
     });
   }
@@ -60,7 +53,7 @@ serve(async (req, res) => {
     return new Response(JSON.stringify({
       message: 'success'
       }), {
-        status: Status.Created,
+        status: 201,
         headers: { "Content-Type": "application/json" },
     });
   }

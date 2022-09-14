@@ -4,8 +4,9 @@ import Subscribe from '../components/Subscribe'
 import RequestDemo from '../components/RequestDemo'
 import Link from 'next/link'
 import React, { useState} from 'react'
+import '../utils/initSupabase.js'
 
-// import './initSupabase.js'
+
 class Index extends React.Component {
     constructor(props) {
         super(props)
@@ -19,7 +20,7 @@ class Index extends React.Component {
 		let data = {
 			'email': email,
 		}
-        const request = await supabase.function.invoke('demo_request', {
+        const response = await supabase.function.invoke('request_demo', {
 			body: JSON.stringify(data)
         })
         if (response.status === 200) {
@@ -32,22 +33,6 @@ class Index extends React.Component {
 		else {
 			// report the error
 		}
-		// fetch('/api/demo_request', {
-		// 	method: 'POST',
-		// 	body: JSON.stringify(data)
-		// }).then(response => {
-		// 	if (response.status === 200) {
-		// 		document.querySelector('#demo_request_success').classList.toggle('hidden')
-		// 		setInterval(() => {
-		// 			document.querySelector('#demo_request_success').classList.toggle('hidden')
-		// 		}, 2500)
-		// 		document.querySelector('input#requester_email').value="Email..."
-		// 	}
-		// 	else {
-		// 		// report the error
-		// 	}
-		// })
-
 	}
 
 
