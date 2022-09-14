@@ -1,11 +1,6 @@
 import { serve } from "https://deno.land/std@0.154.0/http/server.ts"
-import { Status } from "https://deno.land/std@0.154.0/http/http_status.ts"
-import * as Sentry from 'https://esm.sh/@sentry/node?target=deno&deno-std=0.154.0'
 
-Sentry.init({
-  dsn: Deno.env.get('SENTRY_DSN')
-})
-serve(async (req, res) => {
+serve(async (req, _res) => {
 	const { email } = await req.json();
 
 	if (!email || !email.length) {
@@ -44,15 +39,14 @@ serve(async (req, res) => {
 	return new Response(JSON.stringify({
 		message: 'success'
       }), {
-        status: Status.Created,
+        status: 201,
         headers: { "Content-Type": "application/json" },
     });
 	} catch(error) {
-		Sentry.captureException(error);
 		return new Response(JSON.stringify({
 			error: error.message
 		}), {
-          status: Status.InternalServerError,
+          status: 500,
           headers: { "Content-Type": "application/json" },
 		});
 	  }
