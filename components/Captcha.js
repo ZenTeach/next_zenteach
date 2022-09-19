@@ -1,5 +1,4 @@
 import HCaptcha from '@hcaptcha/react-hcaptcha'
-import '../utils/initSupabase.js'
 
 const Captcha = (props) => {
 	const asRef = props.asRef
@@ -13,11 +12,14 @@ const Captcha = (props) => {
 		}
 
 		try {
-		  const response = await supabase.function.invoke('hcaptcha_verify', {
-		      body: JSON.stringify({ token }),
-          })
+		  let url = process.env.NEXT_PUBLIC_SUPABASE_URL
+      let auth_token = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+		  const response = await fetch(`${url}/hcaptcha_verify`, {
+			  body: JSON.stringify({ email: requesterEmail }),
+        headers: { Authorization: `Bearer ${auth_token}` }
+		  })
 		  if (response) {
-			postVerifyCallback()
+			  postVerifyCallback()
 		  }
 		} catch (error) {
 			// TODO: Error handling

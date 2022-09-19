@@ -1,7 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState, forwardRef, useRef, useEffect } from 'react'
 import Captcha from './Captcha'
-import '../utils/initSupabase'
 
 const Subscribe = forwardRef((_props, _ref) => {
 	const [subscribeButton, setSubscribeButton] = useState('')
@@ -49,9 +48,12 @@ const Subscribe = forwardRef((_props, _ref) => {
 	  }
 	  else {
 	  	setState('Loading')
-      const response = await supabase.function.invoke('subscribe', {
-			    body: JSON.stringify(data)
-      })
+      let url = process.env.NEXT_PUBLIC_SUPABASE_URL
+      let auth_token = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+		  const response = await fetch(`${url}/request_demo`, {
+			  body: JSON.stringify({ email: requesterEmail }),
+        headers: { Authorization: `Bearer ${auth_token}` }
+		  })
 
       if (response.status >= 400) {
 			  setState('Error')
