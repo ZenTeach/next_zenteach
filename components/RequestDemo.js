@@ -1,7 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState, useRef, useEffect, forwardRef } from 'react'
 import Captcha from './Captcha'
-import '../utils/initSupabase'
 
 const RequestDemo = forwardRef((_props, _ref) => {
 	const [requestDemoButton, setRequestDemoButton] = useState('')
@@ -23,6 +22,7 @@ const RequestDemo = forwardRef((_props, _ref) => {
 	})
 
 	const onSubmit = () => {
+		setState('Loading')
 		captchaRef.current.execute();
 	};
 
@@ -42,33 +42,37 @@ const RequestDemo = forwardRef((_props, _ref) => {
 	  if(requesterEmail === '') {
 		  setState('Error')
 		  setRequestDemoErrorMsg('Please fill out the field.')
-	  } else if(email_regex.test(String(requesterEmail).toLowerCase()) !== true) {
-		setState('Error')
-		setRequestDemoErrorMsg('Please enter your valid email.')
+	  }
+    else if(email_regex.test(String(requesterEmail).toLowerCase()) !== true) {
+		  setState('Error')
+		  setRequestDemoErrorMsg('Please enter your valid email.')
 	  }
 	  else {
-		setState('Loading')
-		const response = await supabase.function.invoke('request_demo', {
-			body: JSON.stringify({ email: requesterEmail }),
-		})
-		if (response.status >= 400) {
-		  setState('Error')
-		  setRequestDemoButton('error')
-		  let data = await response.json()
-		  setRequestDemoErrorMsg(data.error || 'We are facing some technical difficulties processing your email. Please try again in few moments.')
-		}
-		else {
-			 setState('Success')
-			 setRequestDemoButton('success')
-			 setrequesterEmail('')
-		}
+		  setState('Loading')
+      let url = process.env.NEXT_PUBLIC_SUPABASE_URL
+      let auth_token = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+		  const response = await fetch(`${url}/request_demo`, {
+			  body: JSON.stringify({ email: requesterEmail }),
+        headers: { Authorization: `Bearer ${auth_token}` }
+		  })
+		  if (response.status >= 400) {
+		    setState('Error')
+		    setRequestDemoButton('error')
+		    let data = await response.json()
+		    setRequestDemoErrorMsg(data.error || 'We are facing some technical difficulties processing your email. Please try again in few moments.')
+		  }
+		  else {
+			  setState('Success')
+			  setRequestDemoButton('success')
+			  setrequesterEmail('')
+		  }
 	  }
 	  setTimeout(function() {
-		setState('')
-		setRequestDemoButton('')
-		setRequestDemoErrorMsg('')
-		setrequesterEmail('')
-		captchaRef.current.resetCaptcha()
+		  setState('')
+		  setRequestDemoButton('')
+		  setRequestDemoErrorMsg('')
+		  setrequesterEmail('')
+		  captchaRef.current.resetCaptcha()
 	  }, 5000)
 	}
 

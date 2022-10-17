@@ -4,7 +4,6 @@ import Subscribe from '../components/Subscribe'
 import RequestDemo from '../components/RequestDemo'
 import Link from 'next/link'
 import React, { useState} from 'react'
-import '../utils/initSupabase.js'
 
 
 class Index extends React.Component {
