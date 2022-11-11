@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState, useRef, useEffect, forwardRef } from 'react'
-import Captcha from './Captcha'
 
 const RequestDemo = forwardRef((_props, _ref) => {
 	const [requestDemoButton, setRequestDemoButton] = useState('')
@@ -8,23 +7,6 @@ const RequestDemo = forwardRef((_props, _ref) => {
 	const [state, setState] = useState('idle')
 	const [requestDemoErrorMsg, setRequestDemoErrorMsg] = useState(null)
 	const [_token, setToken] = useState(null);
-	const captchaRef = useRef(null);
-
-	useEffect(() => {
-		if (requesterEmail.length > 3) {
-			setTimeout(function () {
-				document.querySelector('div#request-demo-hcaptcha-container').classList.remove('invisible')
-			}, 100)
-		}
-		else {
-			document.querySelector('div#request-demo-hcaptcha-container').classList.add('invisible')
-		}
-	})
-
-	const onSubmit = () => {
-		setState('Loading')
-		captchaRef.current.execute();
-	};
 
 	const onError = (err) => {
 		setToken(null)
@@ -33,11 +15,10 @@ const RequestDemo = forwardRef((_props, _ref) => {
 		setTimeout(function() {
 			setState('')
 			setErrorMsg('')
-			captchaRef.current.resetCaptcha()
 		}, 5000)
 	}
 
-	const requestDemo = async () => {
+	const onSubmit = async () => {
 	  const email_regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 	  if(requesterEmail === '') {
 		  setState('Error')
@@ -72,7 +53,6 @@ const RequestDemo = forwardRef((_props, _ref) => {
 		  setRequestDemoButton('')
 		  setRequestDemoErrorMsg('')
 		  setrequesterEmail('')
-		  captchaRef.current.resetCaptcha()
 	  }, 5000)
 	}
 
@@ -126,12 +106,6 @@ const RequestDemo = forwardRef((_props, _ref) => {
 		  {state === 'Success' && (
 			<p className="text-sm md:text-l">Great!, we&apos;ll reach out to you soon!</p>
 		  )}
-		  <div className="invisible form-input mt-3" id="request-demo-hcaptcha-container">
-		  	<Captcha
-				postVerifyCallback={ requestDemo }
-				errorCallback={ onError }
-				asRef={ captchaRef } />
-		  </div>
 		</form>
 	  </div>
 	)

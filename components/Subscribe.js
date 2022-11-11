@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState, forwardRef, useRef, useEffect } from 'react'
-import Captcha from './Captcha'
 
 const Subscribe = forwardRef((_props, _ref) => {
 	const [subscribeButton, setSubscribeButton] = useState('')
@@ -8,22 +7,6 @@ const Subscribe = forwardRef((_props, _ref) => {
 	const [state, setState] = useState('idle')
 	const [errorMsg, setErrorMsg] = useState(null)
 	const [_token, setToken] = useState(null);
-	const captchaRef = useRef(null);
-
-	useEffect(() => {
-		if (email.length > 3) {
-			setTimeout(function () {
-				document.querySelector('div#hcaptcha-container').classList.remove('invisible')
-			}, 100)
-		}
-		else {
-			document.querySelector('div#hcaptcha-container').classList.add('invisible')
-		}
-	})
-
-	const onSubmit = () => {
-		captchaRef.current.execute();
-	};
 
 	const onError = (err) => {
 		setToken(null)
@@ -32,11 +15,10 @@ const Subscribe = forwardRef((_props, _ref) => {
 		setTimeout(function() {
 			setState('')
 			setErrorMsg('')
-			captchaRef.current.resetCaptcha()
 		}, 5000)
 	}
 
-	const subscribe = async () => {
+	const onSubmit = async () => {
 	  const email_regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 	  if(email === '') {
 		  setState('Error')
@@ -74,7 +56,6 @@ const Subscribe = forwardRef((_props, _ref) => {
 		  setSubscribeButton('')
 		  setErrorMsg('')
 		  setEmail('')
-		  captchaRef.current.resetCaptcha()
 	  }, 5000)
     }
 
@@ -133,12 +114,6 @@ const Subscribe = forwardRef((_props, _ref) => {
 		  {state === 'Success' && (
 			<p className="text-sm md:text-l">Awesome, you&apos;ve been subscribed!</p>
 		  )}
-		  <div className="invisible form-input mt-3" id="hcaptcha-container">
-		  	<Captcha
-				postVerifyCallback={ subscribe }
-				errorCallback={ onError }
-				asRef={ captchaRef } />
-		  </div>
 		</form>
 	  </div>
 	)
