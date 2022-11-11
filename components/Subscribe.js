@@ -95,7 +95,7 @@ const Subscribe = forwardRef((_props, _ref) => {
 				type="email"
 				value={email}
 				onChange={(e) => setEmail(e.target.value)}
-				className="p-2 border border-grey-light round text-grey-dark text-sm md:text-md h-auto"
+				className="p-2 border border-grey-light round text-grey-dark text-sm md:text-md h-full"
 				placeholder="Your email address"
 			  />
 			</div>
