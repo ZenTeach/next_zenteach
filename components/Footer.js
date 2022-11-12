@@ -18,46 +18,36 @@ class Footer extends React.Component {
 						<p>Follow us on</p>
 						<div className="space-x-2 inline-flex flex-row justify-start w-1/2">
 							<span>
-								<Link passHref href="https://www.twitter.com/getzenteach"
-									rel="noreferrer"
-									target="_blank">
-									<a>
+								<Link passHref href="https://www.twitter.com/getzenteach">
+									<a rel="noreferrer" target="_blank">
 										<FontAwesomeIcon icon={["fab", "twitter"]}/>
 									</a>
 								</Link>
 							</span>
 							<span>
-								<Link passHref href="https://www.linkedin.com/company/zenteach"
-									rel="noreferrer"
-									target="_blank">
-									<a>
+								<Link passHref href="https://www.linkedin.com/company/zenteach">
+									<a rel="noreferrer" target="_blank">
 										<FontAwesomeIcon icon={["fab", "linkedin"]}/>
 									</a>
 								</Link>
 							</span>
 							<span>
-								<Link passHref href="https://github.com/ZenTeach"
-									rel="noreferrer"
-									target="_blank">
-									<a>
+								<Link passHref href="https://github.com/ZenTeach">
+									<a rel="noreferrer" target="_blank">
 										<FontAwesomeIcon icon={["fab", "github"]}/>
 									</a>
 								</Link>
 							</span>
 							<span>
-								<Link passHref href="https://zenteach.medium.com/"
-									rel="noreferrer"
-									target="_blank">
-									<a>
+								<Link passHref href="https://zenteach.medium.com/">
+									<a rel="noreferrer" target="_blank">
 										<FontAwesomeIcon icon={["fab", "medium"]}/>
 									</a>
 								</Link>
 							</span>
 							<span>
-								<Link passHref href="https://www.youtube.com/channel/UCXmgBfoSDoTmurNW02Z-lTA/"
-									rel="noreferrer"
-									target="_blank">
-									<a>
+								<Link passHref href="https://www.youtube.com/@zenteach">
+									<a rel="noreferrer" target="_blank">
 										<FontAwesomeIcon icon={["fab", "youtube"]}/>
 									</a>
 								</Link>
@@ -83,13 +73,6 @@ class Footer extends React.Component {
 							<Link passHref href='/about_us'>
 								<span className="inline-block cursor-pointer bg-white border-none text-red text-sm md:text-l rounded-lg leading-tight">
 									About Us
-								</span>
-							</Link>
-						</li>
-						<li className="hover:text-orange text-grey-darker">
-							<Link passHref href='/vision'>
-								<span className="inline-block cursor-pointer bg-white border-none text-red text-sm md:text-l rounded-lg leading-tight">
-									Vision
 								</span>
 							</Link>
 						</li>
