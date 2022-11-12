@@ -153,18 +153,6 @@ class Index extends React.Component {
 									</span>
 								</li>
 							</ul>
-							<a className="py-2 md:py-0" href="http://zenteach.co.uk/what-is-zenteach/">
-								{/* TODO: Fix this */}
-								<button className="inline-flex items-center font-semibold text-blue-700 md:m-3 md:mb-2 lg:mb-0 hover:text-blue-400">
-										Learn More
-										<svg className="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-											width="20" height="20" fill="currentColor">
-											<path fill="none" d="M0 0h24v24H0z" />
-											<path
-												d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" />
-										</svg>
-								</button>
-							</a>
 						</div>
 					</Feature>
 
@@ -184,7 +172,7 @@ class Index extends React.Component {
 										<img
 											className="object-scale-down h-10 md:h-12 w-auto p-3 object-center rounded-lg"
 											alt="feedback"
-											src="https://zenteach.co.uk/wp-content/uploads/elementor/thumbs/feedback-os9nvawnbaikaaj5s7p9pvy5sl4s6u8pfxgprap01g.png"
+											src="automatic_feedback.png"
 										/>
 										<p>
 											Automated Constructive Feedback
@@ -210,18 +198,6 @@ class Index extends React.Component {
 									</span>
 								</li>
 							</ul>
-
-							<a href="http://zenteach.co.uk/what-is-zenteach/">
-								<button className="inline-flex items-center font-semibold text-blue-700 m-3 md:mb-2 lg:mb-0 hover:text-blue-400">
-										Learn More
-										<svg className="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-											width="20" height="20" fill="currentColor">
-											<path fill="none" d="M0 0h24v24H0z" />
-											<path
-												d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" />
-										</svg>
-								</button>
-							</a>
 						</div>
 					</Feature>
 
@@ -267,18 +243,6 @@ class Index extends React.Component {
 									</span>
 								</li>
 							</ul>
-
-							<a href="https://zenteach.co.uk/what-is-zenteach/">
-									<button className="inline-flex items-center font-semibold text-blue-700 m-3 md:mb-2 lg:mb-0 hover:text-blue-400">
-											Learn More
-											<svg className="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-												width="20" height="20" fill="currentColor">
-												<path fill="none" d="M0 0h24v24H0z" />
-												<path
-													d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" />
-											</svg>
-									</button>
-								</a>
 						</div>
 					</Feature>
 
@@ -323,17 +287,6 @@ class Index extends React.Component {
 									</span>
 								</li>
 							</ul>
-							<a href="https://zenteach.co.uk/what-is-zenteach/">
-									<button className="inline-flex items-center font-semibold text-blue-700 m-3 md:mb-2 lg:mb-0 hover:text-blue-400">
-											Learn More
-											<svg className="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-												width="20" height="20" fill="currentColor">
-												<path fill="none" d="M0 0h24v24H0z" />
-												<path
-													d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" />
-											</svg>
-									</button>
-								</a>
 						</div>
 					</Feature>
 					<Subscribe />
